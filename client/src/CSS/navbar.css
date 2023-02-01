@@ -1,0 +1,16 @@
+.primary-btn {
+    /*position: absolute !important;*/
+    /*bottom: 0 !important;*/
+
+}
+
+@media (max-width: 780px) {
+    .primary-btn {
+        transform: translate(-100%) !important;
+        transition: all 0.9s !important;
+        max-width: 50px ;
+        max-height: 40px;
+
+        color: black !important;
+    }
+}
