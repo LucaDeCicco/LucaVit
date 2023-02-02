@@ -8,18 +8,20 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import InfoIcon from '@mui/icons-material/Info';
 import '../CSS/footer.css';
+import {Link as ReactLink} from "react-router-dom";
+
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="text.secondary">
-            {'Copyright © '}
-            <Link color="inherit" href="http://localhost:3000">
-                All Around
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.  '}
-            All Rights Reserved
-        </Typography>
+            <Typography variant="body2" color="text.secondary">
+                {'Copyright © '}
+                <Link color="inherit" href="http://localhost:3000">
+                    Lucavit
+                </Link>{' '}
+                {new Date().getFullYear()}
+                {'.  '}
+                All Rights Reserved
+            </Typography>
     );
 }
 
@@ -39,7 +41,7 @@ export default function StickyFooter() {
                 display: 'flex',
                 flexDirection: 'column',
             }}
-            className={"footer"}
+            // className={"footer"}
         >
             <CssBaseline />
             <Box
@@ -67,7 +69,9 @@ export default function StickyFooter() {
                             <a href={"https://www.instagram.com/codecool_official/?hl=en"}><InstagramIcon style={logoStyle}/></a>
                         </div>
                         <div style={{marginRight: "2em", display: 'inline-block', alignSelf: 'start'}}>
-                            <a href={"/info"}><InfoIcon style={logoStyle}/></a>
+
+                            {/*<a href={"/info"}><InfoIcon style={logoStyle}/></a>*/}
+                            <ReactLink key={"info"} to={`/info`}><InfoIcon style={logoStyle}/></ReactLink>
                         </div>
                     </div>
                 </Container>

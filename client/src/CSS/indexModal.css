@@ -1,0 +1,19 @@
+.filterModal{
+    background-color: #f3f0ff;
+    /*max-height: 20em;*/
+    /*min-height: 20em;*/
+    /*min-width: 55em;*/
+    max-width: 40em;
+    margin-left: 5em;
+    border-radius: 10px;
+    box-shadow: -5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2em;
+}
+
+@media (max-width: 1000px){
+    .filterModal{
+        margin-left: 1em;
+        /*max-height: 14em;*/
+        max-width: 21em;
+    }
+}
