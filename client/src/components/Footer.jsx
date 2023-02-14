@@ -7,7 +7,7 @@ import Link from '@mui/material/Link';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import InfoIcon from '@mui/icons-material/Info';
-import '../CSS/footer.css';
+import '../style/footer.css';
 import {Link as ReactLink} from "react-router-dom";
 
 
@@ -26,10 +26,10 @@ function Copyright() {
 }
 
 export default function StickyFooter() {
-    const logosStyle = {
-        align: "center",
-        textAlign: "center",
-    }
+    // const logosStyle = {
+    //     align: "center",
+    //     textAlign: "center",
+    // }
 
     const logoStyle = {
         color: "black"

@@ -1,7 +1,8 @@
 import React from 'react';
-import IndexModal from "../Components/IndexModal";
+import IndexModal from "../components/IndexModal";
 
 const MainPage = () => {
+
     return (
         <div>
             <h1>ceva</h1>

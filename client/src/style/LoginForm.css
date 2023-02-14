@@ -1,0 +1,44 @@
+.form{
+    background: linear-gradient(to right, lightblue, lightcyan);
+    border-radius: 10px;
+    box-shadow: -5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    margin: 2em;
+    margin-left: 4em;
+    padding: 1em;
+    max-width: 45em;
+}
+
+.parent-login-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1-login-form { grid-area: 1 / 1 / 2 / 2; padding: 1em }
+.div2-login-form { grid-area: 1 / 2 / 2 / 3; }
+
+.loginImg{
+    border-radius: 30px;
+    max-width: 20em;
+}
+
+@media(max-width: 900px){
+    .loginImg{
+        display: none;
+    }
+    .form{
+        max-width: 20em;
+        min-width: 22em;
+        text-align: center;
+        margin-left: 0.5em;
+
+    }
+    .div2-login-form{
+        display: none;
+    }
+    .div1-login-form{
+        min-width: 20em;
+    }
+}

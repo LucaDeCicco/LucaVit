@@ -3,7 +3,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import '../CSS/indexModalSelect.css'
+import '../style/indexModalSelect.css'
 
 export default function IndexModalSmallSelect(props) {
     const { data } = props;

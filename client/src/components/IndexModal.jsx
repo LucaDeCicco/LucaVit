@@ -1,7 +1,6 @@
 import React from 'react';
-import '../CSS/indexModal.css';
+import '../style/indexModal.css';
 import IndexModalGrid from "./IndexModalGrid";
-import IndexModalSmallSelect from "./IndexModalSmallSelect";
 
 const IndexModal = () => {
     return (

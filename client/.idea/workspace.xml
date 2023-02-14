@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b688f49b-7ddc-47e0-88af-8f2a295b0a6a" name="Changes" comment="working on responsive index FilterModal">
+      <change afterPath="$PROJECT_DIR$/src/components/LoginCredentials.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Register.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Test.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/LoginCredentials.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/LoginForm.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/controller/CarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/BodyType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/Brand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/County.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/Fuel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/GearBoxType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/model/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/repository/CarRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/indexModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/indexModal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/indexModalGrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/indexModalGrid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/indexModalSelect.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/indexModalSelect.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/IndexModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/IndexModalGrid.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModalGrid.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/IndexModalSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModalSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/IndexModalSmallSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModalSmallSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ResponsiveAppBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResponsiveAppBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/InfoPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InfoPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lucaVit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lucaVit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/LucaVitApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/LucaVitApplication.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="JavaScriptReact" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2L8Ewb9N6tngnsAnXOrABIF6kO6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Codecool/repository/CV-Projects/All_Around/All-Around/my-app",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\luca1\\AppData\\Local\\JetBrains\\Toolbox\\apps\\WebStorm\\ch-0\\222.4167.31\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Codecool\repository\JobHunt\LucaVit\client\src\Util\Car-redux" />
+      <recent name="C:\Codecool\repository\JobHunt\LucaVit\client\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b688f49b-7ddc-47e0-88af-8f2a295b0a6a" name="Changes" comment="" />
+      <created>1675244549156</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675244549156</updated>
+      <workItem from="1675244550897" duration="40791000" />
+      <workItem from="1675449101916" duration="18280000" />
+    </task>
+    <task id="LOCAL-00001" summary="working on navbar and footer">
+      <created>1675255167450</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675255167450</updated>
+    </task>
+    <task id="LOCAL-00002" summary="working on responsive index FilterModal">
+      <created>1675342124021</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675342124021</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="working on navbar and footer" />
+    <MESSAGE value="working on responsive index FilterModal" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on responsive index FilterModal" />
+  </component>
+</project>
