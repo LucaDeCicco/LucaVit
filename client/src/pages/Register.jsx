@@ -1,9 +1,11 @@
 import React from 'react';
+import RegisterCredentials from "../components/RegisterCredentials";
 
 const Register = () => {
     return (
         <div>
-            register page
+            <h1>Register</h1>
+            <RegisterCredentials/>
         </div>
     )
 };

@@ -2,41 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b688f49b-7ddc-47e0-88af-8f2a295b0a6a" name="Changes" comment="working on responsive index FilterModal">
-      <change afterPath="$PROJECT_DIR$/src/components/LoginCredentials.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Register.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Test.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style/LoginCredentials.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style/LoginForm.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/controller/CarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/BodyType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/Brand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/County.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/Fuel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/GearBoxType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/model/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/repository/CarRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/security/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/security/jwt/AuthEntryPointJwt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RegisterCredentials.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/indexModal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/indexModal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/indexModalGrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/indexModalGrid.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/indexModalSelect.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/indexModalSelect.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/IndexModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/IndexModalGrid.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModalGrid.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/IndexModalSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModalSelect.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/IndexModalSmallSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndexModalSmallSelect.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ResponsiveAppBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResponsiveAppBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/InfoPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InfoPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lucaVit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lucaVit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/LucaVitApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/LucaVitApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginCredentials.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginCredentials.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/payload/security/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/payload/security/SignupRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="JavaScriptReact" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -74,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Codecool/repository/CV-Projects/All_Around/All-Around/my-app",
+    "last_opened_file_path": "C:/Codecool/repository/JobHunt/LucaVit/client",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -107,7 +82,8 @@
       <option name="presentableId" value="Default" />
       <updated>1675244549156</updated>
       <workItem from="1675244550897" duration="40791000" />
-      <workItem from="1675449101916" duration="18929000" />
+      <workItem from="1675449101916" duration="24387000" />
+      <workItem from="1676451375798" duration="446000" />
     </task>
     <task id="LOCAL-00001" summary="working on navbar and footer">
       <created>1675255167450</created>
