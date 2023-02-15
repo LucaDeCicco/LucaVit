@@ -1,6 +1,6 @@
 package com.codecool.lucaVit.enums;
 
-public enum Combustible {
+public enum Fuel {
     PETROL,
     DIESEL,
     HYBRID,

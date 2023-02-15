@@ -16,6 +16,8 @@
       <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/enums/GearBoxType.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/model/Car.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/repository/CarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/security/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lucaVit/src/main/java/com/codecool/lucaVit/security/jwt/AuthEntryPointJwt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
@@ -105,7 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675244549156</updated>
       <workItem from="1675244550897" duration="40791000" />
-      <workItem from="1675449101916" duration="18280000" />
+      <workItem from="1675449101916" duration="18929000" />
     </task>
     <task id="LOCAL-00001" summary="working on navbar and footer">
       <created>1675255167450</created>
