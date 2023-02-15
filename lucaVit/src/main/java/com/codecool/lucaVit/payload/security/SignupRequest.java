@@ -10,15 +10,16 @@ import java.util.Set;
 @Setter
 public class SignupRequest {
 
-    @NotNull
-    @JsonProperty("name")
-    private String username;
-
-    @NotNull
+    @NotBlank
     @Email
     private String email;
-    private Set<String> role;
 
-    @NotNull
+    @NotBlank
+//    @JsonProperty("name")
+    private String username;
+
+    @NotBlank
     private String password;
+
+    private Set<String> role;
 }
