@@ -10,4 +10,5 @@ public class LucaVitApplication {
 		SpringApplication.run(LucaVitApplication.class, args);
 	}
 
+
 }
