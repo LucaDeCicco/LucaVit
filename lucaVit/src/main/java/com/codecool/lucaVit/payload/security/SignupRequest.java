@@ -1,24 +1,35 @@
 package com.codecool.lucaVit.payload.security;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.validation.constraints.*;
+//import jakarta.validation.constraints.*;
 import java.util.Set;
 
 @Getter
 @Setter
 public class SignupRequest {
 
+//    @Size(min = 3, max = 40)
     @NotBlank
     @Email
+    @NotEmpty
     private String email;
 
-    @NotBlank
+
 //    @JsonProperty("name")
+//    @NotBlank
+//    @Size(min = 3, max = 40)
+    @NotEmpty
     private String username;
 
-    @NotBlank
+//    @NotBlank
+    @Size(min = 6)
+    @NotEmpty
     private String password;
 
     private Set<String> role;

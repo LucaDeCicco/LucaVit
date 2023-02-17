@@ -5,16 +5,85 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import KeyIcon from '@mui/icons-material/Key';
 import '../style/LoginCredentials.css';
 import Button from '@mui/material/Button';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from 'axios';
+import {useAtom} from "jotai";
+import {LOGGED_IN} from "../util/Store";
 
 const API_URL = "http://localhost:8888/api/auth/";
 
 export default function     RegisterCredentials() {
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [userNames, setUserNames] = useState([]);
+    const [emails, setEmails] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
 
+
+
+    useEffect(() => {
+        const fetcherUsernames = async () => {
+            let request = await fetch(`http://localhost:8888/user/getAllUsernames`)
+            let result = await request.json();
+            setUserNames(result);
+        };
+        const fetcherEmails = async () => {
+            let request = await fetch(`http://localhost:8888/user/getAllEmails`)
+            let result = await request.json();
+            setEmails(result);
+        };
+        fetcherUsernames();
+        fetcherEmails();
+    },[])
+
+    useEffect( () => {
+        while (true){
+            if (email.length>0){
+                let sameEmail = false;
+                for (let email1 of emails) {
+                    if (email1===email){
+                        sameEmail = true;
+                    }
+                }
+                if (sameEmail){
+                    setErrorMessage("This email is used");
+                    break;
+                }
+                else {
+                    setErrorMessage("");
+                }
+            }
+            if (username.length>0){
+                let sameUserName = false;
+                for (let userName of userNames) {
+                    if (userName===username){
+                        console.log("username true")
+                        sameUserName = true;
+                    }
+                }
+                if (sameUserName){
+                    setErrorMessage("This username is used");
+                    break;
+                }
+                else {
+                    setErrorMessage("");
+                }
+            }
+            if (password.length>0){
+                if (password.length<6){
+                    setErrorMessage("The password must contain at least 6 characters");
+                    break;
+                }
+                else {
+                    setErrorMessage("");
+                }
+            }
+            break;
+        }
+    },[email, username, password])
 
     const handleChangeUsername = event => {
         setUsername(event.target.value);
@@ -26,43 +95,26 @@ export default function     RegisterCredentials() {
 
     const handleChangeEmail = event => {
         setEmail(event.target.value);
-        // let sameEmail = false;
-        // for (let email of emails) {
-        //     if (email.toLowerCase()===event.target.value.toLowerCase()){
-        //         sameEmail = true;
-        //     }
-        // }
-        // if (sameEmail){
-        //     setErrorMessage("This email is used")
-        // }
-        // else {
-        //     setErrorMessage("")
-        // }
     };
 
-    const addUser = async () => {
-        // validateEmail()
-        console.log("inainte de rsponse");
-        console.log(email);
-        console.log(username);
-        console.log(password);
-        const signUpRequest = {
-            email: email,
-            username: username,
-            password: password,
-            role: ["ROLE_USER"]
+    const validateEmail =()=> {
+        if (!email.includes("@")){
+            setErrorMessage(["The email must contain \"@\""])
         }
-        // let response = await axios.post(API_URL + "signup", {
-        //     email,
-        //     username,
-        //     password,
-        //     role: ["ROLE_USER"]
-        // });
+        if (email.split("@")[1]===""){
+            setErrorMessage(["The email must have a correct format"])
+        }
+    }
+
+    const addUser = async () => {
+        validateEmail()
         let response = await axios.post(API_URL + "signup", {
-            body:JSON.stringify(signUpRequest)
+            email,
+            username,
+            password,
+            role: ["ROLE_USER"]
         });
-        console.log("response")
-        console.log(response)
+
         if (response) {
             // await axios.post("http://localhost:8888/util/registerSendMail",{
             //     // email,
@@ -76,6 +128,7 @@ export default function     RegisterCredentials() {
                 });
             if (loginResponse.data.token) {
                 localStorage.setItem("user", JSON.stringify(loginResponse.data));
+                setLoggedIn(true);
                 window.location.replace("/");
             }
         }
@@ -83,13 +136,14 @@ export default function     RegisterCredentials() {
 
     return (
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
+            <label style={{color:"red"}}>{errorMessage}</label>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="input-with-sx" label="email" variant="standard" onChange={handleChangeEmail} />
+                <TextField id="input-with-sx email" label="email" variant="standard" onChange={handleChangeEmail} />
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="input-with-sx" label="username" variant="standard" onChange={handleChangeUsername} />
+                <TextField label="username" variant="standard" onChange={handleChangeUsername} />
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <KeyIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
@@ -99,7 +153,6 @@ export default function     RegisterCredentials() {
             <Button variant="contained" onClick={addUser}>Register</Button>
             <br/>
             <br/>
-            <h4><a href={"/forgotPassword"} className={"link"}> forgot password </a>|<a href={"/register"} className={"link"}> create account</a></h4>
         </Box>
     );
 }

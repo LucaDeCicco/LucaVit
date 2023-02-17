@@ -14,3 +14,32 @@
         color: black !important;
     }
 }
+
+.authentication {
+    /*display: grid;*/
+    /*grid-template-columns: repeat(3, 1fr);*/
+    /*grid-template-rows: 1fr;*/
+    /*grid-column-gap: 0px;*/
+    /*grid-row-gap: 0px;*/
+}
+
+.login {
+    /*grid-area: 1 / 1 / 2 / 2;*/
+    float: left;
+}
+.divider {
+    /*grid-area: 1 / 2 / 2 / 3;*/
+    /*min-width: 2em;*/
+    /*max-width: 2em;*/
+    /*text-align: center;*/
+    float: left;
+    cursor: default;
+    color: black;
+}
+.register {
+    /*grid-area: 1 / 3 / 2 / 4;*/
+    float: left;
+}
+
+
+

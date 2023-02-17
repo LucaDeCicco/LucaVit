@@ -7,6 +7,7 @@ import InfoPage from "./pages/InfoPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Test from "./pages/Test";
+import AddAnnouncement from "./pages/AddAnnouncement";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="register" element={<Register />}/>
               <Route path="info" element={<InfoPage />}/>
               <Route path="test" element={<Test />}/>
+              <Route path="addAnnouncement" element={<AddAnnouncement />}/>
           </Routes>
       </div>
         <StickyFooter />

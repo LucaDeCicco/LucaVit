@@ -4,9 +4,7 @@ import com.codecool.lucaVit.enums.*;
 import com.codecool.lucaVit.model.Car;
 import com.codecool.lucaVit.repository.CarRepository;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
