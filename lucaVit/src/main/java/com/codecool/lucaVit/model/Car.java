@@ -15,22 +15,34 @@ public class Car {
     private Long id;
     private BodyType bodyType;
     private Brand brand;
-    private County county;
     private GearBoxType gearBoxType;
-    private Long price;
     private int year;
     private Fuel combustible;
-    private Long km;
+    private int km;
+    private String vin;
 
 
-    public Car(BodyType bodyType, Brand brand, County county, GearBoxType gearBoxType, Long price, int year, Fuel combustible, Long km) {
+    public Car(BodyType bodyType, Brand brand, GearBoxType gearBoxType, int year, Fuel combustible, int km, String vin) {
         this.bodyType = bodyType;
         this.brand = brand;
-        this.county = county;
         this.gearBoxType = gearBoxType;
-        this.price = price;
         this.year = year;
         this.combustible = combustible;
         this.km = km;
+        this.vin = vin;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", bodyType=" + bodyType +
+                ", brand=" + brand +
+                ", gearBoxType=" + gearBoxType +
+                ", year=" + year +
+                ", combustible=" + combustible +
+                ", km=" + km +
+                ", vin='" + vin + '\'' +
+                '}';
     }
 }

@@ -1,0 +1,9 @@
+.infiniteScroll{
+    margin-left: 5em;
+}
+
+@media (max-width: 600px) {
+    .infiniteScroll{
+        margin-left: 0em;
+    }
+}

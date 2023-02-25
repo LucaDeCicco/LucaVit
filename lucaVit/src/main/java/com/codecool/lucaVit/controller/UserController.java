@@ -24,4 +24,5 @@ public class UserController {
     public List<String> getAllUsernames(){
         return userService.getAllUsernames();
     }
+
 }

@@ -65,6 +65,8 @@ public class SecurityConfiguration {
 //                        .permitAll()
                     .requestMatchers("/car/getAllBrands")
                         .permitAll()
+                    .requestMatchers("/specs/getAllSpecs")
+                        .permitAll()
                     .requestMatchers("/user/getAllEmails")
                         .permitAll()
                     .requestMatchers("/user/getAllUsernames")

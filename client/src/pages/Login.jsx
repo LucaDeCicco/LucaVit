@@ -8,7 +8,6 @@ import Loading from "../components/Loading";
 const Login = () => {
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
 
-    console.log(loggedIn+"loggedIn")
     if (loggedIn==="true"){
         window.location.replace("/")
     }

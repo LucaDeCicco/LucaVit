@@ -1,0 +1,95 @@
+.parentAddAnnouncement {
+    padding-left: 3em;
+    max-width: 50em;
+}
+
+.div1AddAnnouncement {
+    /*grid-area: 1 / 1 / 2 / 2;*/
+}
+
+.div2AddAnnouncement {
+    position: fixed;
+    top: 150px;
+    right: 150px;
+}
+
+.parentAddCarDetails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    max-width: 70em;
+}
+
+.div1AddCarDetails { grid-area: 1 / 1 / 2 / 2; }
+.div2AddCarDetails { grid-area: 1 / 2 / 2 / 3; }
+.div3AddCarDetails { grid-area: 2 / 1 / 3 / 2; }
+.div4AddCarDetails { grid-area: 2 / 2 / 3 / 3; }
+.div5AddCarDetails { grid-area: 3 / 1 / 4 / 2; }
+.div6AddCarDetails { grid-area: 3 / 2 / 4 / 3; }
+
+@media(max-width: 1400px){
+    .div2AddAnnouncement{
+        display: none;
+    }
+}
+
+.addVin{
+    margin-left: 13em;
+    margin-top: 2em;
+}
+
+.addDescription{
+    width: 39em!important;
+}
+
+.addAnnouncementTitle{
+/*style={{marginLeft:"3em", color:"darkslategrey"}}*/
+    margin-left: 3em;
+    color: darkslategray;
+}
+
+@media(max-width: 400px){
+    .addPrice{
+        max-width: 10em!important;
+    }
+}
+
+@media(max-width: 630px){
+    .addAnnouncementTitle{
+        margin-left: 0em;
+    }
+}
+
+@media(max-width: 800px){
+    .addDescription{
+        width: 15em!important;
+    }
+}
+
+@media(max-width: 840px){
+    .parentAddCarDetails {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .div1AddCarDetails { grid-area: 1 / 1 / 2 / 2; }
+    .div2AddCarDetails { grid-area: 2 / 1 / 3 / 2; }
+    .div3AddCarDetails { grid-area: 3 / 1 / 4 / 2; }
+    .div4AddCarDetails { grid-area: 4 / 1 / 5 / 2; }
+    .div5AddCarDetails { grid-area: 5 / 1 / 6 / 2; }
+    .div6AddCarDetails {
+        grid-area: 6 / 1 / 7 / 2;
+        margin-top: 1em;
+    }
+
+    .addVin{
+        margin-left: 0em;
+    }
+
+}
+

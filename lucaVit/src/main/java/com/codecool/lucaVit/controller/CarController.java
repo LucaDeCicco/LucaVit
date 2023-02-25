@@ -36,24 +36,16 @@ public class CarController {
         return brands;
     }
 
-//    @GetMapping("/getAllSpecs")
-//    public List<List<String>> getAllSpecs(){
-//        List<List<String>> allSpecs = new ArrayList<>();
-//        List<String> bodyTypes = new ArrayList<>();
-//        Collections.addAll(bodyTypes, Arrays.toString(BodyType.values()));
-//        allSpecs.add(bodyTypes);
-//        List<String> brands = new ArrayList<>();
-//        Collections.addAll(brands, Arrays.toString(Brand.values()));
-//        allSpecs.add(brands);
-//        List<String> fuels = new ArrayList<>();
-//        Collections.addAll(fuels, Arrays.toString(Fuel.values()));
-//        allSpecs.add(fuels);
-//
-//    }
-
-    @PostMapping("/add")
-    public void addCar(){
-        Car car = new Car(BodyType.CABRIO, Brand.ALFA_ROMEO, County.ALBA, GearBoxType.AUTOMATIC, 10000L, 2008, Fuel.DIESEL, 150000L);
-        carRepository.save(car);
+    @GetMapping("/getAllBodyType")
+    public List<BodyType> getAllBodyType(){
+        List<BodyType> bodyTypes = new ArrayList<>();
+        Collections.addAll(bodyTypes, BodyType.values());
+        return bodyTypes;
     }
+
+//    @PostMapping("/add")
+//    public void addCar(){
+//        Car car = new Car(BodyType.CABRIO, Brand.ALFA_ROMEO, County.ALBA, GearBoxType.AUTOMATIC, 10000L, 2008, Fuel.DIESEL, 150000L);
+//        carRepository.save(car);
+//    }
 }

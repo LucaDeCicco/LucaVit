@@ -1,0 +1,43 @@
+.profileNavBar{
+    background-color: #eeeeee;
+    padding: 1em;
+    position: fixed;
+    top: 63px;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    z-index: 1;
+}
+
+.mainButtons{
+    margin: 1em 2em !important;
+    background-color: #8f98c0 !important;
+}
+
+.content{
+    margin-top: 12em;
+}
+
+@media(max-width: 797px){
+    .content{
+        margin-top: 15em;
+    }
+}
+
+@media(max-width: 465px){
+    .content{
+        margin-top: 19em;
+    }
+}
+
+@media(max-width:  379px){
+    .content{
+        margin-top: 23em;
+    }
+}
+
+@media(max-width: 297px){
+    .content{
+        margin-top: 24em;
+    }
+}

@@ -37,15 +37,7 @@ export default function StickyFooter() {
 
     return (
         <>
-            <hr
-                style={{
-                    background: 'black',
-                    color: 'black',
-                    borderColor: 'black',
-                    height: '1px',
-                    width: "70%"
-                }}
-            />
+            <hr className={"footerHr"}/>
             <Box
                 sx={{
                     display: 'flex',
@@ -62,7 +54,9 @@ export default function StickyFooter() {
                         px: 2,
                         mt: 'auto',
                         // background: 'linear-gradient(to right, #A8A8A8, #363437)',
-                        background: 'white',
+                        // background: 'red',
+                        // background: "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(160,192,198,1) 100%)",
+                        background: "linear-gradient(to bottom, #ffffff, #a0c0c6)",
                         marginTop: "???px"
                     }}
                 >

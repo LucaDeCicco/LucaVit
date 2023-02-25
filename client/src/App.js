@@ -8,12 +8,18 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Test from "./pages/Test";
 import AddAnnouncement from "./pages/AddAnnouncement";
+import '../src/style/app.css';
+import FilteredAnnouncementsPage from "./pages/FilteredAnnouncementsPage";
+import AnnouncementPage from "./pages/AnnouncementPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
+    //TODO
   return (
     <>
         <ResponsiveAppBar/>
-      <div  style={{minHeight:"80vh"}}>
+
+      <div className={"mainDiv"}>
           <Routes>
               <Route index element={<MainPage />} />
               <Route path="login" element={<Login />}/>
@@ -21,6 +27,9 @@ function App() {
               <Route path="info" element={<InfoPage />}/>
               <Route path="test" element={<Test />}/>
               <Route path="addAnnouncement" element={<AddAnnouncement />}/>
+              <Route path="filteredAnnouncements" element={<FilteredAnnouncementsPage />}/>
+              <Route path="/announcement/:id" element={<AnnouncementPage />}/>
+              <Route path="/profile/:username" element={<ProfilePage />}/>
           </Routes>
       </div>
         <StickyFooter />

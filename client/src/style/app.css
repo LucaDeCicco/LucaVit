@@ -1,0 +1,12 @@
+.mainDiv{
+    min-height: 80vh;
+    padding-left: 5em;
+    padding-right: 5em;
+    margin-top: 6em;
+}
+
+@media(max-width: 550px){
+    .mainDiv{
+        padding: 0em;
+    }
+}

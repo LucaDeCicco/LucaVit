@@ -1,0 +1,28 @@
+.priceCard{
+    margin-left: 25em;
+    color: #00000099;
+}
+
+@media(max-width: 880px){
+    .priceCard{
+        margin-left: 20em;
+    }
+}
+
+@media(max-width: 800px){
+    .priceCard{
+        margin-left: 15em;
+    }
+}
+
+@media(max-width: 690px){
+    .priceCard{
+        margin-left: 10em;
+    }
+}
+
+@media(max-width: 590px){
+    .priceCard{
+        margin-left: 7em;
+    }
+}

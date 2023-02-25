@@ -97,6 +97,12 @@ export default function     RegisterCredentials() {
         setEmail(event.target.value);
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            addUser();
+        }
+    };
+
     const validateEmail =()=> {
         if (!email.includes("@")){
             setErrorMessage(["The email must contain \"@\""])
@@ -120,7 +126,6 @@ export default function     RegisterCredentials() {
             //     // email,
             //     username
             // });
-            // let username = name
             const loginResponse = await axios
                 .post(API_URL + "signin", {
                     username,
@@ -139,15 +144,15 @@ export default function     RegisterCredentials() {
             <label style={{color:"red"}}>{errorMessage}</label>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="input-with-sx email" label="email" variant="standard" onChange={handleChangeEmail} />
+                <TextField id="input-with-sx email" label="email" variant="standard" onChange={handleChangeEmail} onKeyDown={handleKeyDown} />
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField label="username" variant="standard" onChange={handleChangeUsername} />
+                <TextField label="username" variant="standard" onChange={handleChangeUsername} onKeyDown={handleKeyDown}/>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <KeyIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="outlined-password-input" label="password" autoComplete="current-password" type="password" variant="standard" onChange={handleChangePassword}/>
+                <TextField id="outlined-password-input" label="password" autoComplete="current-password" type="password" variant="standard" onChange={handleChangePassword} onKeyDown={handleKeyDown}/>
             </Box>
             <br/>
             <Button variant="contained" onClick={addUser}>Register</Button>
