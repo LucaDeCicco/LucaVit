@@ -39,7 +39,7 @@ public class AnnouncementController {
     @PostMapping("/filter/{nrCrt}")
     public Announcement getFilteredAnnouncement(@PathVariable String nrCrt, @RequestBody FiltersRequest filtersRequest){
 //        return announcementService.getFilteredAnnouncement(Long.valueOf(nrCrt), filtersRequest);
-        return announcementService.getFilteredGptAnnouncement(filtersRequest, Long.valueOf(nrCrt));
+        return announcementService.getDbFilteredAnnouncement(filtersRequest, Long.valueOf(nrCrt));
     }
 
     @PostMapping("/addToFavorites/{announcementId}/{userId}")

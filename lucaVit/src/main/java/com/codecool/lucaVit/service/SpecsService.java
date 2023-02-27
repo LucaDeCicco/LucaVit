@@ -3,7 +3,6 @@ package com.codecool.lucaVit.service;
 import com.codecool.lucaVit.enums.*;
 import com.codecool.lucaVit.model.Specs;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

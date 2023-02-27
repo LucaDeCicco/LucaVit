@@ -43,9 +43,4 @@ public class CarController {
         return bodyTypes;
     }
 
-//    @PostMapping("/add")
-//    public void addCar(){
-//        Car car = new Car(BodyType.CABRIO, Brand.ALFA_ROMEO, County.ALBA, GearBoxType.AUTOMATIC, 10000L, 2008, Fuel.DIESEL, 150000L);
-//        carRepository.save(car);
-//    }
 }

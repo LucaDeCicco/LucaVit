@@ -84,7 +84,7 @@ public class AnnouncementService {
     }
 
 
-    public Announcement getFilteredGptAnnouncement(FiltersRequest filtersRequest, Long nrCrt) {
+    public Announcement getDbFilteredAnnouncement(FiltersRequest filtersRequest, Long nrCrt) {
         List<Announcement> announcements = announcementRepository.findAll(
                 AnnouncementSpecifications.filterAnnouncements(
                         filtersRequest.getBodyType(),

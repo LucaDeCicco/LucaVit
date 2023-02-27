@@ -1,6 +1,5 @@
 package com.codecool.lucaVit.controller;
 
-import com.codecool.lucaVit.repository.UserRepository;
 import com.codecool.lucaVit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
