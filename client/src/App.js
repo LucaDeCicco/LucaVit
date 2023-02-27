@@ -14,27 +14,25 @@ import AnnouncementPage from "./pages/AnnouncementPage";
 import ProfilePage from "./pages/ProfilePage";
 
 function App() {
-    //TODO
-  return (
-    <>
-        <ResponsiveAppBar/>
-
-      <div className={"mainDiv"}>
-          <Routes>
-              <Route index element={<MainPage />} />
-              <Route path="login" element={<Login />}/>
-              <Route path="register" element={<Register />}/>
-              <Route path="info" element={<InfoPage />}/>
-              <Route path="test" element={<Test />}/>
-              <Route path="addAnnouncement" element={<AddAnnouncement />}/>
-              <Route path="filteredAnnouncements" element={<FilteredAnnouncementsPage />}/>
-              <Route path="/announcement/:id" element={<AnnouncementPage />}/>
-              <Route path="/profile/:username" element={<ProfilePage />}/>
-          </Routes>
-      </div>
-        <StickyFooter />
-    </>
-  );
+    return (
+        <>
+            <ResponsiveAppBar/>
+            <div className={"mainDiv"}>
+                <Routes>
+                    <Route index element={<MainPage/>}/>
+                    <Route path="login" element={<Login/>}/>
+                    <Route path="register" element={<Register/>}/>
+                    <Route path="info" element={<InfoPage/>}/>
+                    <Route path="test" element={<Test/>}/>
+                    <Route path="addAnnouncement" element={<AddAnnouncement/>}/>
+                    <Route path="filteredAnnouncements" element={<FilteredAnnouncementsPage/>}/>
+                    <Route path="/announcement/:id" element={<AnnouncementPage/>}/>
+                    <Route path="/profile/:username" element={<ProfilePage/>}/>
+                </Routes>
+            </div>
+            <StickyFooter/>
+        </>
+    );
 }
 
 export default App;

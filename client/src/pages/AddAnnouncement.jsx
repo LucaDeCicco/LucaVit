@@ -20,54 +20,60 @@ const AddAnnouncement = () => {
     const [announcementDetails, setAnnouncementDetails] = useAtom(ADD_ANNOUNCEMENT_DETAILS);
 
 
-    useEffect( () => {
-        if (loggedIn==="false"){
+    useEffect(() => {
+        if (loggedIn === "false") {
             window.location.replace("/login")
         }
+
         async function fetchBrandsData() {
-            if (!carSpecs){
+            if (!carSpecs) {
                 try {
                     let response = await axios.get(BASE_PATH + "specs/getAllSpecs");
                     setCarSpecs(response.data);
-                }
-                catch (e){
-                    console.log("error: "+e);
+                } catch (e) {
+                    console.log("error: " + e);
                 }
             }
         }
+
         fetchBrandsData()
-        
-    },[])
+
+    }, [])
 
     const addAnnouncement = async () => {
         //TODO try catch
         const user = JSON.parse(localStorage.getItem('user'));
         let token = user.token
         let username = user.username;
-        const response = await fetch(BASE_PATH + "announcement/add", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + token
-            },
-            body: JSON.stringify({
-                bodyType:carSpecs.bodyTypes[announcementDetails.bodyType/10],
-                brand:carSpecs.brands[announcementDetails.brand/10],
-                gearBoxType:carSpecs.gearBoxTypes[announcementDetails.gearBox/10],
-                fuel:carSpecs.fuels[announcementDetails.fuel/10],
-                year:parseInt(announcementDetails.year),
-                km:parseInt(announcementDetails.km),
-                vin:announcementDetails.vin,
-                description:announcementDetails.description,
-                images:announcementDetails.images,
-                price:parseInt(announcementDetails.price),
-                county:carSpecs.counties[announcementDetails.county/10],
-                contact:announcementDetails.contact,
-                authorName:username
-            }),
-        });
-        console.log(response)
-        window.location.replace("/")
+        try {
+            await fetch(BASE_PATH + "announcement/add", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + token
+                },
+                body: JSON.stringify({
+                    bodyType: carSpecs.bodyTypes[announcementDetails.bodyType / 10],
+                    brand: carSpecs.brands[announcementDetails.brand / 10],
+                    gearBoxType: carSpecs.gearBoxTypes[announcementDetails.gearBox / 10],
+                    fuel: carSpecs.fuels[announcementDetails.fuel / 10],
+                    year: parseInt(announcementDetails.year),
+                    km: parseInt(announcementDetails.km),
+                    vin: announcementDetails.vin,
+                    description: announcementDetails.description,
+                    images: announcementDetails.images,
+                    price: parseInt(announcementDetails.price),
+                    county: carSpecs.counties[announcementDetails.county / 10],
+                    contact: announcementDetails.contact,
+                    authorName: username
+                }),
+            });
+            window.location.replace("/")
+        } catch (e) {
+            //TODO
+            console.log(e);
+        }
+
     }
 
     const uploadImages = (files) => {
@@ -94,31 +100,31 @@ const AddAnnouncement = () => {
                         <h3>Car Details</h3>
                         <div className="parentAddCarDetails">
                             <div className="div1AddCarDetails">
-                                <IndexModalSelect data={createDataObject("BodyType", carSpecs.bodyTypes, "addAnnouncement")}/>
+                                <IndexModalSelect
+                                    data={createDataObject("BodyType", carSpecs.bodyTypes, "addAnnouncement")}/>
                             </div>
                             <div className="div2AddCarDetails">
                                 <IndexModalSelect data={createDataObject("Brand", carSpecs.brands, "addAnnouncement")}/>
                             </div>
                             <div className="div3AddCarDetails">
-                                <IndexModalSelect data={createDataObject("GearBox", carSpecs.gearBoxTypes, "addAnnouncement")}/>
+                                <IndexModalSelect
+                                    data={createDataObject("GearBox", carSpecs.gearBoxTypes, "addAnnouncement")}/>
                             </div>
                             <div className="div4AddCarDetails">
                                 <IndexModalSelect data={createDataObject("Fuel", carSpecs.fuels, "addAnnouncement")}/>
                             </div>
                             <div className="div5AddCarDetails">
-                                <BasicInput data={"year"} />
+                                <BasicInput data={"year"}/>
                             </div>
                             <div className="div6AddCarDetails">
-                                <BasicInput data={"Km"} />
+                                <BasicInput data={"Km"}/>
                             </div>
                         </div>
                         <div className={"addVin"}>
-                            <BasicInput data={"VIN"} />
+                            <BasicInput data={"VIN"}/>
                         </div>
                         <h3>Description</h3>
-                        {/*<div className={"addDesc"}>*/}
-                            <Textarea data={"addAnnouncement"} />
-                        {/*</div>*/}
+                        <Textarea data={"addAnnouncement"}/>
                         <br/>
                         <label>Add Images </label>
                         <FileBase64
@@ -128,10 +134,10 @@ const AddAnnouncement = () => {
                         <br/>
                         <br/>
                         <div>
-                            <div style={{float:"left"}}>
-                                <BasicInput data={"Price"} />
+                            <div style={{float: "left"}}>
+                                <BasicInput data={"Price"}/>
                             </div>
-                            <h4 style={{float:"left"}}>&nbsp; € EUR</h4>
+                            <h4 style={{float: "left"}}>&nbsp; € EUR</h4>
                         </div>
                         <br/>
                         <br/>
@@ -140,7 +146,7 @@ const AddAnnouncement = () => {
                         <IndexModalSelect data={createDataObject("County", carSpecs.counties, "addAnnouncement")}/>
                         <br/>
                         <br/>
-                        <BasicInput data={"Email or Phone"} />
+                        <BasicInput data={"Email or Phone"}/>
                         <br/>
                         <br/>
                         <Button variant="contained" color="success" onClick={addAnnouncement}>
@@ -151,12 +157,12 @@ const AddAnnouncement = () => {
                         <br/>
                     </div>
                     <div className="div2AddAnnouncement">
-                        <img src={sellAndBuyImage} style={{maxWidth:"25em", maxHeight:"25em"}}/>
+                        <img src={sellAndBuyImage} style={{maxWidth: "25em", maxHeight: "25em"}}/>
                     </div>
                 </div>
             ) : (
-                <div style={{position:"absolute", left:"47%", top:"100px"}}>
-                    <Loading />
+                <div style={{position: "absolute", left: "47%", top: "100px"}}>
+                    <Loading/>
                 </div>
             )}
         </>

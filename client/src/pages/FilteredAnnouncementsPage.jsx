@@ -5,21 +5,18 @@ import AnnouncementList from "../components/AnnouncementList";
 import Loading from "../components/Loading";
 
 
-
 const FilteredAnnouncementsPage = () => {
-    const [filters, setFilters] = useAtom(FILTER_STORE);
-    if (filters.filter){
+    const [filters] = useAtom(FILTER_STORE);
+    if (filters.filter) {
         return (
             <div>
-                <AnnouncementList type={"filter"} />
+                <AnnouncementList type={"filter"}/>
             </div>
         )
-
-    }
-    else {
+    } else {
         return (
             <div>
-                <Loading />
+                <Loading/>
             </div>
         )
     }

@@ -18,7 +18,7 @@ export default function AnnouncementPageDetails(props) {
 
     return (
         <>
-            <h4>{data?.date.split("T")[0]}</h4>
+            <h4 style={{textAlign:"center"}}>{data?.date.split("T")[0]}</h4>
             <div className={"announcementPageDetails"}>
                 <Stack direction="row" spacing={2} style={{marginBottom:"2em"}}>
                     <Item>{data?.county}</Item>

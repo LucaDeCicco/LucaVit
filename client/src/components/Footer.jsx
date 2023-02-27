@@ -13,23 +13,19 @@ import {Link as ReactLink} from "react-router-dom";
 
 function Copyright() {
     return (
-            <Typography variant="body2" color="gray">
-                {'Copyright © '}
-                <Link color="inherit" href="http://localhost:3000">
-                    Lucavit
-                </Link>{' '}
-                {new Date().getFullYear()}
-                {'.  '}
-                All Rights Reserved
-            </Typography>
+        <Typography variant="body2" color="gray">
+            {'Copyright © '}
+            <Link color="inherit" href="http://localhost:3000">
+                Lucavit
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.  '}
+            All Rights Reserved
+        </Typography>
     );
 }
 
 export default function StickyFooter() {
-    // const logosStyle = {
-    //     align: "center",
-    //     textAlign: "center",
-    // }
 
     const logoStyle = {
         color: "black"
@@ -43,40 +39,36 @@ export default function StickyFooter() {
                     display: 'flex',
                     flexDirection: 'column',
                 }}
-                // className={"footer"}
             >
 
-                <CssBaseline />
+                <CssBaseline/>
                 <Box
                     component="footer"
                     sx={{
                         py: 3,
                         px: 2,
                         mt: 'auto',
-                        // background: 'linear-gradient(to right, #A8A8A8, #363437)',
-                        // background: 'red',
-                        // background: "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(160,192,198,1) 100%)",
                         background: "linear-gradient(to bottom, #ffffff, #a0c0c6)",
                         marginTop: "???px"
                     }}
                 >
-                    <Container maxWidth="sm" style={{textAlign: 'center', display:"flex"}}>
-                        <div className={"emailFooter"} style={{display: 'inline-block', verticalAlign: 'middle', marginRight:"2em"}}>
+                    <Container maxWidth="sm" style={{textAlign: 'center', display: "flex"}}>
+                        <div className={"emailFooter"}
+                             style={{display: 'inline-block', verticalAlign: 'middle', marginRight: "2em"}}>
                             <Typography variant="body1" color={"#767A86"}>
                                 E-mail: luca14.decicco@gmail.com
                             </Typography>
-                            <Copyright />
+                            <Copyright/>
                         </div>
-                        <div style={{display: 'inline-block', alignSelf: 'start', marginLeft:'2em'}}>
+                        <div style={{display: 'inline-block', alignSelf: 'start', marginLeft: '2em'}}>
                             <div style={{marginRight: "2em", display: 'inline-block', alignSelf: 'start'}}>
                                 <a href={"https://www.facebook.com/CodecoolOfficial"}><FacebookIcon style={logoStyle}/></a>
                             </div>
                             <div style={{marginRight: "2em", display: 'inline-block', alignSelf: 'start'}}>
-                                <a href={"https://www.instagram.com/codecool_official/?hl=en"}><InstagramIcon style={logoStyle}/></a>
+                                <a href={"https://www.instagram.com/codecool_official/?hl=en"}><InstagramIcon
+                                    style={logoStyle}/></a>
                             </div>
                             <div style={{marginRight: "2em", display: 'inline-block', alignSelf: 'start'}}>
-
-                                {/*<a href={"/info"}><InfoIcon style={logoStyle}/></a>*/}
                                 <ReactLink key={"info"} to={`/info`}><InfoIcon style={logoStyle}/></ReactLink>
                             </div>
                         </div>

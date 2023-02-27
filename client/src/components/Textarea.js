@@ -7,12 +7,11 @@ import '../style/addAnnouncementPage.css'
 
 export default function Textarea(props) {
     const {data} = props;
-    const [value, setValue] = React.useState('Controlled');
     const [announcementDetails, setAnnouncementDetails] = useAtom(ADD_ANNOUNCEMENT_DETAILS);
 
-    const addDescription =(event)=> {
-        if (data==="addAnnouncement"){
-            announcementDetails.description=event.target.value;
+    const addDescription = (event) => {
+        if (data === "addAnnouncement") {
+            announcementDetails.description = event.target.value;
             setAnnouncementDetails(announcementDetails);
         }
     }
@@ -21,7 +20,7 @@ export default function Textarea(props) {
         <Box
             component="form"
             sx={{
-                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                '& .MuiTextField-root': {m: 1, width: '25ch'},
             }}
             noValidate
             autoComplete="off"
@@ -34,7 +33,6 @@ export default function Textarea(props) {
                     rows={4}
                     defaultValue="Write a description about your announcement"
                     variant="filled"
-                    // style={{width:"39em"}}
                     className={"addDescription"}
                     onChange={addDescription}
                 />

@@ -10,6 +10,7 @@ import ContactCard from "../components/ContactCard";
 import Button from "@mui/material/Button";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import {BASE_PATH} from "../util/Store";
 
 
 const AnnouncementPage = () => {
@@ -17,14 +18,14 @@ const AnnouncementPage = () => {
     const [announcement, setAnnouncement] = useState();
     const [addedToFav, setAddedToFav] = useState(false);
 
-    useEffect(()=>{
-        const checkFavorite =async () => {
+    useEffect(() => {
+        const checkFavorite = async () => {
             const user = JSON.parse(localStorage.getItem('user'));
             if (user) {
                 let token = user.token
                 let userId = user.id
                 try {
-                    let request = await fetch(`http://localhost:8888/announcement/favoriteCheck/${id}/${userId}`, {
+                    let request = await fetch(BASE_PATH + `announcement/favoriteCheck/${id}/${userId}`, {
                         headers: {Authorization: 'Bearer ' + token}
                     })
                     let result = await request.json();
@@ -38,16 +39,15 @@ const AnnouncementPage = () => {
 
         const fetcher = async () => {
             const user = JSON.parse(localStorage.getItem('user'));
-            if (user){
+            if (user) {
                 let token = user.token
                 try {
-                    let request = await fetch(`http://localhost:8888/announcement/getById/${id}`,{
+                    let request = await fetch(BASE_PATH + `announcement/getById/${id}`, {
                         headers: {Authorization: 'Bearer ' + token}
                     })
                     let result = await request.json();
                     setAnnouncement(result)
-                }
-                catch (e){
+                } catch (e) {
                     console.log(e);
                 }
 
@@ -55,16 +55,16 @@ const AnnouncementPage = () => {
         };
         checkFavorite();
         fetcher();
-    },[])
+    }, [])
 
-    const  addToFav =async () => {
+    const addToFav = async () => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
             let token = user.token
             let userId = user.id
             if (!addedToFav) {
                 try {
-                    await fetch(`http://localhost:8888/announcement/addToFavorites/${id}/${userId}`, {
+                    await fetch(BASE_PATH + `announcement/addToFavorites/${id}/${userId}`, {
                         method: "POST",
                         headers: {Authorization: 'Bearer ' + token}
                     })
@@ -73,7 +73,7 @@ const AnnouncementPage = () => {
                 }
             } else {
                 try {
-                    await fetch(`http://localhost:8888/announcement/removeFromFavorites/${id}/${userId}`, {
+                    await fetch(BASE_PATH + `announcement/removeFromFavorites/${id}/${userId}`, {
                         method: "POST",
                         headers: {Authorization: 'Bearer ' + token}
                     })
@@ -87,36 +87,33 @@ const AnnouncementPage = () => {
 
     return (
         <>
-            <AnnouncementVideo />
+            <AnnouncementVideo/>
             <div>
                 <Paper className={"announcementPrice"}>
-                    <h2 style={{marginLeft:"2em"}}>{announcement?.price} €</h2>
+                    <h2 style={{marginLeft: "2em"}}>{announcement?.price} €</h2>
                 </Paper>
-                <Button variant={"outlined"} style={{marginBottom:"1em"}} onClick={addToFav}>
-                    {addedToFav?(
+                <Button variant={"outlined"} style={{marginBottom: "1em"}} onClick={addToFav}>
+                    {addedToFav ? (
                         <>
-                            <FavoriteIcon />
+                            <FavoriteIcon/>
                             Remove from Favorites
                         </>
 
-                    ):(
+                    ) : (
                         <>
                             <FavoriteBorderIcon/>
                             &nbsp;&nbsp;Add To Favorites
                         </>
                     )}
-
                 </Button>
-                {announcement?<PhotoContainer data={announcement.images}/>:<Loading />}
-                <AnnouncementPageDetails data={announcement} />
+                {announcement ? <PhotoContainer data={announcement.images}/> : <Loading/>}
+                <AnnouncementPageDetails data={announcement}/>
                 <Paper className={"description"} elevation={24}>
                     {announcement?.description}
                 </Paper>
                 <div className={"contactCard"}>
                     <ContactCard data={announcement}/>
                 </div>
-
-
             </div>
         </>
 

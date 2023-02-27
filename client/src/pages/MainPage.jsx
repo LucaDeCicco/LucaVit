@@ -13,7 +13,6 @@ const MainPage = () => {
 
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
     const [scroll, setScroll] = useState(false);
-
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const showAllBtnStyle = {
@@ -23,7 +22,7 @@ const MainPage = () => {
     };
 
     const indexModalStyle = {
-        marginBottom: scrollPosition >= 480 ? "7em":"0em"
+        marginBottom: scrollPosition >= 480 ? "7em" : "0em"
     }
 
     useEffect(() => {
@@ -33,24 +32,24 @@ const MainPage = () => {
         }
 
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
 
-    const handleShowAllBtn =()=> {
-        if (!loggedIn){
+    const handleShowAllBtn = () => {
+        if (!loggedIn) {
             window.location.replace("/login")
         }
         setScroll(!scroll);
     }
     return (
         <div>
-            <h2 className={"mainPageTitle"} style={{marginLeft:"4em", color:"rgba(0,0,0,0.6)"}}>Find your dream car</h2>
+            <h2 className={"mainPageTitle"} style={{marginLeft: "4em", color: "rgba(0,0,0,0.6)"}}>Find your dream
+                car</h2>
             <div style={indexModalStyle}>
-                <IndexModal />
+                <IndexModal/>
             </div>
             <div style={showAllBtnStyle}>
                 <Button
@@ -60,20 +59,20 @@ const MainPage = () => {
                 >
                     {scroll ? (
                         <>
-                            <KeyboardArrowUpIcon style={{ marginTop:"2px"}} />
+                            <KeyboardArrowUpIcon style={{marginTop: "2px"}}/>
                         </>
 
-                    ):(
+                    ) : (
                         <>
                             <div>show all</div>
-                            <ExpandMoreIcon style={{marginLeft:"1em", marginTop:"2px"}}/>
+                            <ExpandMoreIcon style={{marginLeft: "1em", marginTop: "2px"}}/>
                         </>
 
                     )}
                 </Button>
             </div>
-            {!scroll ? null :<AnnouncementList/>}
-            <MainPageVideo />
+            {!scroll ? null : <AnnouncementList/>}
+            <MainPageVideo/>
         </div>
     )
 };

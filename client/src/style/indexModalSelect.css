@@ -2,13 +2,6 @@
     min-width: 17em!important;
 }
 
-/*@media (max-width: 1000px) {*/
-/*    .indexModalSelect {*/
-/*        background-color: red;*/
-/*        min-width: 5em!important;*/
-/*    }*/
-/*}*/
-
 .indexModalSmallSelect{
     min-width: 7.5em!important;
     margin-right: 2em!important;

@@ -8,10 +8,10 @@ import Button from '@mui/material/Button';
 import {useState} from "react";
 import axios from 'axios';
 import {useAtom} from "jotai";
-import {LOGGED_IN} from "../util/Store";
+import {BASE_PATH, LOGGED_IN} from "../util/Store";
 import {Alert, Stack} from "@mui/material";
 
-const API_URL = "http://localhost:8888/api/auth/";
+const API_URL = BASE_PATH+"api/auth/";
 
 export default function LoginCredentials() {
 
@@ -43,20 +43,14 @@ export default function LoginCredentials() {
                     username,
                     password,
                 });
-
+                localStorage.setItem("user", JSON.stringify(response.data));
+                setLoggedIn(true);
+                window.location.replace("/");
         }
         catch (err){
-            setIsVisible(current => true);
+            setIsVisible(true);
         }
-
-        if (response.data.token) {
-            localStorage.setItem("user", JSON.stringify(response.data));
-            setLoggedIn(true);
-            window.location.replace("/");
-        }
-        return response.data;
     };
-    // console.log(loginUser())
 
     return (
         <Box sx={{ '& > :not(style)': { m: 1 } }}>

@@ -24,7 +24,6 @@ export default function ContactCard(props) {
                         </Avatar>
                     }
                     title={data?.appUser.username}
-                    // subheader={data.date.split("T")[0]}
                 />
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     {data?.county}

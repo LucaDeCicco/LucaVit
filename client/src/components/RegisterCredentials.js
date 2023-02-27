@@ -8,11 +8,11 @@ import Button from '@mui/material/Button';
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import {useAtom} from "jotai";
-import {LOGGED_IN} from "../util/Store";
+import {BASE_PATH, LOGGED_IN} from "../util/Store";
 
-const API_URL = "http://localhost:8888/api/auth/";
+const API_URL = BASE_PATH + "api/auth/";
 
-export default function     RegisterCredentials() {
+export default function RegisterCredentials() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -23,21 +23,30 @@ export default function     RegisterCredentials() {
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
 
 
-
     useEffect(() => {
         const fetcherUsernames = async () => {
-            let request = await fetch(`http://localhost:8888/user/getAllUsernames`)
-            let result = await request.json();
-            setUserNames(result);
+            try {
+                let request = await fetch(BASE_PATH + `user/getAllUsernames`)
+                let result = await request.json();
+                setUserNames(result);
+            } catch (e) {
+                console.log(e);
+            }
+
         };
         const fetcherEmails = async () => {
-            let request = await fetch(`http://localhost:8888/user/getAllEmails`)
-            let result = await request.json();
-            setEmails(result);
+            try {
+                let request = await fetch(BASE_PATH + `user/getAllEmails`)
+                let result = await request.json();
+                setEmails(result);
+            } catch (e) {
+                console.log(e);
+            }
+
         };
         fetcherUsernames();
         fetcherEmails();
-    },[])
+    }, [])
 
     useEffect( () => {
         while (true){
@@ -103,56 +112,59 @@ export default function     RegisterCredentials() {
         }
     };
 
-    const validateEmail =()=> {
-        if (!email.includes("@")){
+    const validateEmail = () => {
+        if (!email.includes("@")) {
             setErrorMessage(["The email must contain \"@\""])
+            return false;
         }
-        if (email.split("@")[1]===""){
+        if (email.split("@")[1] === "") {
             setErrorMessage(["The email must have a correct format"])
+            return false;
         }
+        return true;
     }
 
     const addUser = async () => {
-        validateEmail()
-        let response = await axios.post(API_URL + "signup", {
-            email,
-            username,
-            password,
-            role: ["ROLE_USER"]
-        });
-
-        if (response) {
-            // await axios.post("http://localhost:8888/util/registerSendMail",{
-            //     // email,
-            //     username
-            // });
-            const loginResponse = await axios
-                .post(API_URL + "signin", {
+        if (validateEmail()) {
+            try {
+                await axios.post(API_URL + "signup", {
+                    email,
                     username,
                     password,
+                    role: ["ROLE_USER"]
                 });
-            if (loginResponse.data.token) {
+                const loginResponse = await axios
+                    .post(API_URL + "signin", {
+                        username,
+                        password,
+                    });
                 localStorage.setItem("user", JSON.stringify(loginResponse.data));
                 setLoggedIn(true);
                 window.location.replace("/");
+            } catch (e) {
+                console.log(e);
             }
         }
+
     }
 
     return (
-        <Box sx={{ '& > :not(style)': { m: 1 } }}>
-            <label style={{color:"red"}}>{errorMessage}</label>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="input-with-sx email" label="email" variant="standard" onChange={handleChangeEmail} onKeyDown={handleKeyDown} />
+        <Box sx={{'& > :not(style)': {m: 1}}}>
+            <label style={{color: "red"}}>{errorMessage}</label>
+            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                <TextField id="input-with-sx email" label="email" variant="standard" onChange={handleChangeEmail}
+                           onKeyDown={handleKeyDown}/>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField label="username" variant="standard" onChange={handleChangeUsername} onKeyDown={handleKeyDown}/>
+            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                <TextField label="username" variant="standard" onChange={handleChangeUsername}
+                           onKeyDown={handleKeyDown}/>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                <KeyIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="outlined-password-input" label="password" autoComplete="current-password" type="password" variant="standard" onChange={handleChangePassword} onKeyDown={handleKeyDown}/>
+            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                <KeyIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                <TextField id="outlined-password-input" label="password" autoComplete="current-password" type="password"
+                           variant="standard" onChange={handleChangePassword} onKeyDown={handleKeyDown}/>
             </Box>
             <br/>
             <Button variant="contained" onClick={addUser}>Register</Button>

@@ -19,23 +19,14 @@ import profileImg from '../resources/AvatarNoBg.png';
 import LoginIcon from '@mui/icons-material/Login';
 
 
-
 function ResponsiveAppBar() {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
     };
 
     const handleCloseUserMenu = () => {
@@ -49,24 +40,24 @@ function ResponsiveAppBar() {
         window.location.replace("/login");
     };
 
-    const viewProfile =() =>{
+    const viewProfile = () => {
         const user = JSON.parse(localStorage.getItem('user'));
         let username = user.username;
-        if (username){
+        if (username) {
             window.location.replace(`/profile/${username}`)
         }
     }
 
-    const goLogin =()=>{
+    const goLogin = () => {
         setAnchorElNav(null);
         window.location.replace("/login");
     }
 
-    const goAddAnnouncement =()=> {
+    const goAddAnnouncement = () => {
         window.location.replace("/addAnnouncement")
     }
 
-    const goMainPage =()=> {
+    const goMainPage = () => {
         window.location.replace("/")
     }
 
@@ -78,10 +69,9 @@ function ResponsiveAppBar() {
                         variant="h6"
                         noWrap
                         component="a"
-                        // href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -90,7 +80,8 @@ function ResponsiveAppBar() {
                             flexGrow: 1
                         }}
                     >
-                        <img src={Logo} width={250} height={64} alt={""} onClick={goMainPage} style={{cursor:"pointer"}}/>
+                        <img src={Logo} width={250} height={64} alt={""} onClick={goMainPage}
+                             style={{cursor: "pointer"}}/>
                     </Typography>
 
                     <Typography
@@ -100,7 +91,7 @@ function ResponsiveAppBar() {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            display: {xs: 'flex', md: 'none'},
                             flexGrow: 1,
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -112,54 +103,61 @@ function ResponsiveAppBar() {
                         <img src={Logo} width={250} height={64} alt={""}/>
                     </Typography>
 
-                        <Button className={"addAnnouncementBtn"} variant="contained" href="/addAnnouncement" style={{marginRight:"2em"}} >
-                            <AddIcon />
-                             Sell Now
-                        </Button>
+                    <Button className={"addAnnouncementBtn"} variant="contained" href="/addAnnouncement"
+                            style={{marginRight: "2em"}}>
+                        <AddIcon/>
+                        Sell Now
+                    </Button>
 
                     {loggedIn ? (
-                            <Box sx={{ flexGrow: 0 }} style={{marginLeft:"2em"}}>
-                                <Tooltip title="Open settings">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="L" src={profileImg} />
-                                    </IconButton>
-                                </Tooltip>
-                                <Menu
-                                    sx={{ mt: '45px' }}
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
-                                >
-                                    <MenuItem key={"profile"} onClick={viewProfile}>
-                                        <Typography textAlign="center">Profile</Typography>
-                                    </MenuItem>
-                                    <MenuItem key={"menuAddAnnouncement"} className={"menuAddAnnouncement"} onClick={goAddAnnouncement}>
-                                        <Typography textAlign="center">Sell Now +</Typography>
-                                    </MenuItem>
-                                    <MenuItem key={"logout"} onClick={logout}>
-                                        <Typography textAlign="center">Logout</Typography>
-                                    </MenuItem>
-                                </Menu>
-                            </Box>
+                        <Box sx={{flexGrow: 0}} style={{marginLeft: "2em"}}>
+                            <Tooltip title="Open settings">
+                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                    <Avatar alt="L" src={profileImg}/>
+                                </IconButton>
+                            </Tooltip>
+                            <Menu
+                                sx={{mt: '45px'}}
+                                id="menu-appbar"
+                                anchorEl={anchorElUser}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElUser)}
+                                onClose={handleCloseUserMenu}
+                            >
+                                <MenuItem key={"profile"} onClick={viewProfile}>
+                                    <Typography textAlign="center">Profile</Typography>
+                                </MenuItem>
+                                <MenuItem key={"menuAddAnnouncement"} className={"menuAddAnnouncement"}
+                                          onClick={goAddAnnouncement}>
+                                    <Typography textAlign="center">Sell Now +</Typography>
+                                </MenuItem>
+                                <MenuItem key={"logout"} onClick={logout}>
+                                    <Typography textAlign="center">Logout</Typography>
+                                </MenuItem>
+                            </Menu>
+                        </Box>
                     ) : (
                         <>
                             <IconButton className={"loginIcon"} onClick={goLogin}>
-                                <LoginIcon />
+                                <LoginIcon/>
                             </IconButton>
-                            <Box className={"authentication"} sx={{ display: { xs: 'none', md: 'flex' } }}>
-                                <div className={"login"}><a href={"/login"} style={{textDecoration:"none", color:"black"}}>Login</a></div>
+                            <Box className={"authentication"} sx={{display: {xs: 'none', md: 'flex'}}}>
+                                <div className={"login"}><a href={"/login"}
+                                                            style={{textDecoration: "none", color: "black"}}>Login</a>
+                                </div>
                                 <div className={"divider"}>&nbsp; | &nbsp;</div>
-                                <div className={"register"}><a href={"/register"} style={{textDecoration:"none", color:"black"}}>Register</a></div>
+                                <div className={"register"}><a href={"/register"} style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}>Register</a></div>
                             </Box>
                         </>
 
@@ -169,4 +167,5 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
+
 export default ResponsiveAppBar;
