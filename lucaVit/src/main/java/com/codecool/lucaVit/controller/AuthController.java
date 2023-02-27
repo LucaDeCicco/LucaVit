@@ -11,7 +11,6 @@ import com.codecool.lucaVit.security.UserPrincipal;
 import com.codecool.lucaVit.security.jwt.JwtUtils;
 import com.codecool.lucaVit.repository.RoleRepository;
 import com.codecool.lucaVit.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,16 +28,24 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-    @Autowired
-    AuthenticationManager authenticationManager;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    RoleRepository roleRepository;
-    @Autowired
-    PasswordEncoder encoder;
-    @Autowired
-    JwtUtils jwtUtils;
+
+    private final AuthenticationManager authenticationManager;
+
+    private final UserRepository userRepository;
+
+    private final RoleRepository roleRepository;
+
+    private final PasswordEncoder encoder;
+
+    private final JwtUtils jwtUtils;
+
+    public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder, JwtUtils jwtUtils) {
+        this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.encoder = encoder;
+        this.jwtUtils = jwtUtils;
+    }
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {

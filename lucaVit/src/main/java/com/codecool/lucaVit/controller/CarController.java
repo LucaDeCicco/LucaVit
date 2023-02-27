@@ -1,11 +1,8 @@
 package com.codecool.lucaVit.controller;
 
-import com.codecool.lucaVit.enums.*;
 import com.codecool.lucaVit.model.Car;
 import com.codecool.lucaVit.repository.CarRepository;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -19,28 +16,9 @@ public class CarController {
         this.carRepository = carRepository;
     }
 
-    @GetMapping()
-    public String index() {
-        return "homePage";
-    }
-
     @GetMapping("/getAll")
     public List<Car> getAllCars(){
         return carRepository.findAll();
-    }
-
-    @GetMapping("/getAllBrands")
-    public List<Brand> getAllBrands(){
-        List<Brand> brands = new ArrayList<>();
-        Collections.addAll(brands, Brand.values());
-        return brands;
-    }
-
-    @GetMapping("/getAllBodyType")
-    public List<BodyType> getAllBodyType(){
-        List<BodyType> bodyTypes = new ArrayList<>();
-        Collections.addAll(bodyTypes, BodyType.values());
-        return bodyTypes;
     }
 
 }

@@ -17,6 +17,7 @@ import java.io.IOException;
 import org.slf4j.Logger;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
+
     @Autowired
     private JwtUtils jwtUtils;
 
@@ -24,6 +25,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private UserPrincipalDetailsService userDetailsService;
 
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
+
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

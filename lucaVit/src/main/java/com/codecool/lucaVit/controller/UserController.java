@@ -1,7 +1,6 @@
 package com.codecool.lucaVit.controller;
 
 import com.codecool.lucaVit.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,8 +10,12 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.PUT, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.POST})
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
 
     @GetMapping("/getAllEmails")
     public List<String> getAllEmails(){

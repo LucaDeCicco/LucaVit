@@ -2,7 +2,6 @@ package com.codecool.lucaVit.security;
 
 import com.codecool.lucaVit.security.jwt.AuthEntryPointJwt;
 import com.codecool.lucaVit.security.jwt.AuthTokenFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,10 +20,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-    @Autowired
-    UserPrincipalDetailsService userDetailsService;
-    @Autowired
-    private AuthEntryPointJwt unauthorizedHandler;
+    private final UserPrincipalDetailsService userDetailsService;
+    private final AuthEntryPointJwt unauthorizedHandler;
+
+    public SecurityConfiguration(UserPrincipalDetailsService userDetailsService, AuthEntryPointJwt unauthorizedHandler) {
+        this.userDetailsService = userDetailsService;
+        this.unauthorizedHandler = unauthorizedHandler;
+    }
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {

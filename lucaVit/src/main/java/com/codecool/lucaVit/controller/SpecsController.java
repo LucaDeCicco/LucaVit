@@ -1,8 +1,14 @@
 package com.codecool.lucaVit.controller;
 
+import com.codecool.lucaVit.enums.BodyType;
+import com.codecool.lucaVit.enums.Brand;
 import com.codecool.lucaVit.model.Specs;
 import com.codecool.lucaVit.service.SpecsService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("/specs")
@@ -17,4 +23,5 @@ public class SpecsController {
     public Specs getAllSpecs(){
         return specsService.getSpecs();
     }
+
 }
