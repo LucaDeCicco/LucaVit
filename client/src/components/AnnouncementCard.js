@@ -12,6 +12,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import '../style/announcementCard.css'
 import {useEffect, useState} from "react";
+import {BASE_PATH} from "../util/Store";
 
 export default function AnnouncementCard(props) {
 
@@ -25,7 +26,7 @@ export default function AnnouncementCard(props) {
                 let token = user.token
                 let userId = user.id
                 try {
-                    let request = await fetch(`http://localhost:8888/announcement/favoriteCheck/${data.id}/${userId}`, {
+                    let request = await fetch(BASE_PATH+`announcement/favoriteCheck/${data.id}/${userId}`, {
                         headers: {Authorization: 'Bearer ' + token}
                     })
                     let result = await request.json();
@@ -51,11 +52,6 @@ export default function AnnouncementCard(props) {
                         {data.appUser.username[0].toUpperCase()}
                     </Avatar>
                 }
-                // action={
-                //     <IconButton aria-label="settings">
-                //         <MoreVertIcon />
-                //     </IconButton>
-                // }
                 title={data.appUser.username}
                 subheader={data.date.split("T")[0]}
             />

@@ -26,5 +26,5 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
     List<Announcement> findAnnouncementsByAppUser_Id(Long id);
 
 
-    List<Announcement> findAll(Specification<Announcement> filterAnnouncements, Sort id);
+    List<Announcement> findAll(Specification<Announcement> filterAnnouncements);
 }

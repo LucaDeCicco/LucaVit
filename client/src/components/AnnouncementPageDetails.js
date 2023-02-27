@@ -17,19 +17,23 @@ export default function AnnouncementPageDetails(props) {
     const {data} = props;
 
     return (
-        <div className={"announcementPageDetails"}>
-            <Stack direction="row" spacing={2} style={{marginBottom:"2em"}}>
-                <Item>{data?.county}</Item>
-                <Item>{data?.car.brand}</Item>
-                <Item>{data?.car.bodyType}</Item>
-                <Item>{data?.car.year}</Item>
-            </Stack>
-            <Stack direction="row" spacing={2}>
-                <Item>{data?.car.km} Km</Item>
-                <Item>{data?.car.combustible}</Item>
-                <Item>{data?.car.gearBoxType}</Item>
-                <Item>{data?.car.vin} VIN</Item>
-            </Stack>
-        </div>
+        <>
+            <h4>{data?.date.split("T")[0]}</h4>
+            <div className={"announcementPageDetails"}>
+                <Stack direction="row" spacing={2} style={{marginBottom:"2em"}}>
+                    <Item>{data?.county}</Item>
+                    <Item>{data?.car.brand}</Item>
+                    <Item>{data?.car.bodyType}</Item>
+                    <Item>{data?.car.year}</Item>
+                </Stack>
+                <Stack direction="row" spacing={2}>
+                    <Item>{data?.car.km} Km</Item>
+                    <Item>{data?.car.combustible}</Item>
+                    <Item>{data?.car.gearBoxType}</Item>
+                    <Item>{data?.car.vin} VIN</Item>
+                </Stack>
+            </div>
+        </>
+
     );
 }

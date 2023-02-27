@@ -36,15 +36,8 @@ export default function BasicInput(props) {
     return (
         <Box
             component="form"
-            // sx={{
-            //     '& > :not(style)': { m: 1, width: '30ch' },
-            // }}
             noValidate
             autoComplete="off"
-            style={{
-                // maxHeight:"4em"
-                // height:"2em"
-            }}
         >
             <TextField id="outlined-basic" className={"addPrice"} style={{width:"17em"}} label={data} onChange={inputHandle} variant="outlined" />
         </Box>

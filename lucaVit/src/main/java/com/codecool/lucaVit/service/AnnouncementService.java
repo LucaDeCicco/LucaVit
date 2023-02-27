@@ -100,8 +100,8 @@ public class AnnouncementService {
                         filtersRequest.getMinPrice(),
                         filtersRequest.getMaxPrice(),
                         filtersRequest.getCounty()
-                ),
-                Sort.by(Sort.Direction.ASC, "id")
+                )
+//                Sort.by(Sort.Direction.ASC, "id")
         );
         if (nrCrt-1<announcements.size()&&announcements.size()>0){
             return announcements.get((int) (nrCrt-1));
