@@ -6,10 +6,8 @@ import com.codecool.lucaVit.model.Car;
 import com.codecool.lucaVit.payload.AnnouncementRequest;
 import com.codecool.lucaVit.payload.FiltersRequest;
 import com.codecool.lucaVit.repository.AnnouncementRepository;
-import com.codecool.lucaVit.repository.AnnouncementSpecifications;
 import com.codecool.lucaVit.repository.CarRepository;
 import com.codecool.lucaVit.repository.UserRepository;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -56,7 +54,7 @@ public class AnnouncementService {
                 announcementRequest.getContact(),
                 biggestCrt+1,
                 appUser
-                );
+        );
         announcementRepository.save(announcement);
     }
 

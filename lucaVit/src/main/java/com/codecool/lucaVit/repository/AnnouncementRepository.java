@@ -2,7 +2,6 @@ package com.codecool.lucaVit.repository;
 
 import com.codecool.lucaVit.enums.*;
 import com.codecool.lucaVit.model.Announcement;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

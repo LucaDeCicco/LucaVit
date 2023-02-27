@@ -1,9 +1,8 @@
-package com.codecool.lucaVit.repository;
+package com.codecool.lucaVit.service;
 
 import com.codecool.lucaVit.enums.*;
 import com.codecool.lucaVit.model.Announcement;
 import org.springframework.data.jpa.domain.Specification;
-
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
