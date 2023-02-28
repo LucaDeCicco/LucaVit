@@ -41,7 +41,6 @@ const AddAnnouncement = () => {
     }, [])
 
     const addAnnouncement = async () => {
-        //TODO try catch
         const user = JSON.parse(localStorage.getItem('user'));
         let token = user.token
         let username = user.username;
@@ -68,9 +67,8 @@ const AddAnnouncement = () => {
                     authorName: username
                 }),
             });
-            window.location.replace("/")
+            // window.location.replace("/")
         } catch (e) {
-            //TODO
             console.log(e);
         }
 

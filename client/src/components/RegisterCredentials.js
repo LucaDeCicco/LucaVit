@@ -112,7 +112,7 @@ export default function RegisterCredentials() {
         }
     };
 
-    const validateEmail = () => {
+    const validateCredentials = () => {
         if (!email.includes("@")) {
             setErrorMessage(["The email must contain \"@\""])
             return false;
@@ -121,11 +121,19 @@ export default function RegisterCredentials() {
             setErrorMessage(["The email must have a correct format"])
             return false;
         }
+        if (username.length===0){
+            setErrorMessage(["Username invalid"])
+            return false;
+        }
+        if (password.length<6){
+            setErrorMessage(["The password must contain at least 6 characters"])
+        }
+
         return true;
     }
 
     const addUser = async () => {
-        if (validateEmail()) {
+        if (validateCredentials()) {
             try {
                 await axios.post(API_URL + "signup", {
                     email,
