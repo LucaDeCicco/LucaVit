@@ -67,7 +67,7 @@ const AddAnnouncement = () => {
                     authorName: username
                 }),
             });
-            // window.location.replace("/")
+            window.location.replace("/")
         } catch (e) {
             console.log(e);
         }

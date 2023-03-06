@@ -12,7 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AddIcon from '@mui/icons-material/Add';
 import '../style/navbar.css';
-import Logo from '../resources/logo.PNG';
+// import Logo from '../resources/logo.PNG';
 import {useAtom} from "jotai";
 import {LOGGED_IN} from "../util/Store";
 import profileImg from '../resources/AvatarNoBg.png';
@@ -80,7 +80,7 @@ function ResponsiveAppBar() {
                             flexGrow: 1
                         }}
                     >
-                        <img src={Logo} width={250} height={64} alt={""} onClick={goMainPage}
+                        <img src={"Logo"} width={250} height={64} alt={""} onClick={goMainPage}
                              style={{cursor: "pointer"}}/>
                     </Typography>
 
