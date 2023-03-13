@@ -69,7 +69,6 @@ export default function RegisterCredentials() {
                 let sameUserName = false;
                 for (let userName of userNames) {
                     if (userName===username){
-                        console.log("username true")
                         sameUserName = true;
                     }
                 }

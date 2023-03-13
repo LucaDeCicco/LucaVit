@@ -12,6 +12,10 @@ export default function AnnouncementList(props) {
     const [filters] = useAtom(FILTER_STORE);
     const {type} = props;
 
+    useEffect(()=>{
+        window.scrollBy(0, -10);
+        window.scrollBy(0,10);
+    },[])
 
 
     const loadData = async () => {
