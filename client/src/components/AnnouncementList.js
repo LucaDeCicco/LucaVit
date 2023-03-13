@@ -13,8 +13,8 @@ export default function AnnouncementList(props) {
     const {type} = props;
 
     useEffect(()=>{
-        window.scrollBy(0, -10);
-        window.scrollBy(0,10);
+        window.scrollBy(0, 100);
+        window.scrollBy(0,-100);
     },[])
 
 

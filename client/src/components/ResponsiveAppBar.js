@@ -100,7 +100,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        <img src={"Logo"} width={250} height={64} alt={""}/>
+                        <img src={Logo} width={250} height={64} alt={""}/>
                     </Typography>
 
                     <Button className={"addAnnouncementBtn"} variant="contained" href="/addAnnouncement"

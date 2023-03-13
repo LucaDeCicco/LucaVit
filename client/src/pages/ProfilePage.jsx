@@ -4,6 +4,11 @@ import '../style/ProfilePage.css'
 import Button from "@mui/material/Button";
 import AnnouncementList from "../components/AnnouncementList";
 
+import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import MessageIcon from '@mui/icons-material/Message';
+import SettingsIcon from '@mui/icons-material/Settings';
+
 const ProfilePage = () => {
     const {username} = useParams();
     const [content, setContent] = useState("MY ANNOUNCEMENTS");
@@ -11,6 +16,22 @@ const ProfilePage = () => {
 
     const changeContent = (event) => {
         setContent(event.target.valueOf().innerText);
+    }
+
+    const goMyAnnouncements =()=> {
+        setContent("MY ANNOUNCEMENTS")
+    }
+
+    const goFavorites =()=> {
+        setContent("FAVORITES")
+    }
+
+    const goMessages =()=> {
+        setContent("MESSAGES")
+    }
+
+    const goSettings =()=> {
+        setContent("SETTINGS")
     }
 
     return (
@@ -25,10 +46,35 @@ const ProfilePage = () => {
                                 className={"mainButtons"} onClick={changeContent}>{item}</Button>
                     )
                 ))}
+                <div className="smallProfileButtons">
+                    {contentTypes.map(item => (
+                        content === item ? (
+                            <b key={item}
+                               className={"mainSmallButtons"}>{item}</b>
+                        ) : (
+                            <b key={item} style={{boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.4)"}}
+                               className={"mainSelectedSmallButtons"} onClick={changeContent}>{item}</b>
+                        )
+                    ))}
+                </div>
+                <div className="iconsProfileButtons">
+                    {contentTypes.map(item => (
+                        content === item ? (
+                            item === "MY ANNOUNCEMENTS" ? (<ChromeReaderModeIcon className="mainSelectedProfileIcons"/>) :
+                                item === "FAVORITES" ? (<FavoriteIcon className="mainSelectedProfileIcons"/>) :
+                                    item === "MESSAGES" ? (<MessageIcon className="mainSelectedProfileIcons"/>) :
+                                        item === "SETTINGS" ? (<SettingsIcon className="mainSelectedProfileIcons"/>) : null
+                        ) : (
+                            item === "MY ANNOUNCEMENTS" ? (<ChromeReaderModeIcon className="mainProfileIcons" onClick={goMyAnnouncements}/>) :
+                                item === "FAVORITES" ? (<FavoriteIcon className="mainProfileIcons" onClick={goFavorites}/>) :
+                                    item === "MESSAGES" ? (<MessageIcon className="mainProfileIcons" onClick={goMessages}/>) :
+                                        item === "SETTINGS" ? (<SettingsIcon className="mainProfileIcons" onClick={goSettings}/>) : null
+                        )
+                    ))}
+                </div>
             </div>
             <div className={"content"}>
-                <h2>Hello {username}</h2>
-                <h3>{content}</h3>
+                <div className="contentTitle">{content}</div>
                 {content === "FAVORITES" ? (
                     <AnnouncementList type={"profilePageFavorite"}/>
                 ) : null}
