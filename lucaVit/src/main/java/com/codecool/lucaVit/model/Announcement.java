@@ -44,6 +44,8 @@ public class Announcement {
 
     private LocalDateTime date;
 
+    private Long views;
+
     public Announcement(Car car, String description, List<String> images, int price, County county, String contact, Long nrCrt, AppUser appUser) {
         this.car = car;
         this.description = description;
@@ -53,7 +55,8 @@ public class Announcement {
         this.contact = contact;
         this.nrCrt = nrCrt;
         this.appUser = appUser;
-        this.date= LocalDateTime.now();
+        this.date = LocalDateTime.now();
+        this.views = 0L;
     }
 
     @Override

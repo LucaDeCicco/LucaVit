@@ -33,6 +33,7 @@ public class AnnouncementController {
 
     @GetMapping("/getById/{id}")
     public Announcement getAnnouncementById(@PathVariable String id){
+        System.out.println("pe aici");
         return announcementService.getAnnouncementById(Long.valueOf(id));
     }
 

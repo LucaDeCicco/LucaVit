@@ -68,7 +68,10 @@ public class AnnouncementService {
     }
 
     public Announcement getAnnouncementById(Long id){
-        return announcementRepository.getAnnouncementById(id);
+        Announcement announcement = announcementRepository.getAnnouncementById(id);
+        announcement.setViews(announcement.getViews()+1);
+        announcementRepository.save(announcement);
+        return announcement;
     }
 
     public List<Announcement> getFilteredAnnouncements(FiltersRequest filtersRequest){
