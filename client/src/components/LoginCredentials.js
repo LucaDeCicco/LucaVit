@@ -10,6 +10,7 @@ import axios from 'axios';
 import {useAtom} from "jotai";
 import {BASE_PATH, LOGGED_IN} from "../util/Store";
 import {Alert, Stack} from "@mui/material";
+import {setupTokenExpirationChecking} from "../util/Service";
 
 const API_URL = BASE_PATH+"api/auth/";
 
@@ -45,6 +46,7 @@ export default function LoginCredentials() {
                 });
                 localStorage.setItem("user", JSON.stringify(response.data));
                 setLoggedIn(true);
+                // setupTokenExpirationChecking();
                 window.location.replace("/");
         }
         catch (err){

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import '../style/ProfilePage.css'
 import Button from "@mui/material/Button";
@@ -60,15 +60,15 @@ const ProfilePage = () => {
                 <div className="iconsProfileButtons">
                     {contentTypes.map(item => (
                         content === item ? (
-                            item === "MY ANNOUNCEMENTS" ? (<ChromeReaderModeIcon className="mainSelectedProfileIcons"/>) :
-                                item === "FAVORITES" ? (<FavoriteIcon className="mainSelectedProfileIcons"/>) :
-                                    item === "MESSAGES" ? (<MessageIcon className="mainSelectedProfileIcons"/>) :
-                                        item === "SETTINGS" ? (<SettingsIcon className="mainSelectedProfileIcons"/>) : null
+                            item === "MY ANNOUNCEMENTS" ? (<ChromeReaderModeIcon key={item} className="mainSelectedProfileIcons"/>) :
+                                item === "FAVORITES" ? (<FavoriteIcon key={item} className="mainSelectedProfileIcons"/>) :
+                                    item === "MESSAGES" ? (<MessageIcon key={item} className="mainSelectedProfileIcons"/>) :
+                                        item === "SETTINGS" ? (<SettingsIcon key={item} className="mainSelectedProfileIcons"/>) : null
                         ) : (
-                            item === "MY ANNOUNCEMENTS" ? (<ChromeReaderModeIcon className="mainProfileIcons" onClick={goMyAnnouncements}/>) :
-                                item === "FAVORITES" ? (<FavoriteIcon className="mainProfileIcons" onClick={goFavorites}/>) :
-                                    item === "MESSAGES" ? (<MessageIcon className="mainProfileIcons" onClick={goMessages}/>) :
-                                        item === "SETTINGS" ? (<SettingsIcon className="mainProfileIcons" onClick={goSettings}/>) : null
+                            item === "MY ANNOUNCEMENTS" ? (<ChromeReaderModeIcon key={item} className="mainProfileIcons" onClick={goMyAnnouncements}/>) :
+                                item === "FAVORITES" ? (<FavoriteIcon key={item} className="mainProfileIcons" onClick={goFavorites}/>) :
+                                    item === "MESSAGES" ? (<MessageIcon key={item} className="mainProfileIcons" onClick={goMessages}/>) :
+                                        item === "SETTINGS" ? (<SettingsIcon key={item} className="mainProfileIcons" onClick={goSettings}/>) : null
                         )
                     ))}
                 </div>

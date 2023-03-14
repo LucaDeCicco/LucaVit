@@ -6,6 +6,26 @@
     margin-bottom: 2em;
 }
 
+.viewsIcon{
+    margin-left: 2em;
+    color: gray;
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+.viewsNumber{
+    color: gray;
+    display: inline-block;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.views{
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 1em;
+}
+
 .announcementPageDetails{
     margin-top: 3em;
     margin-left: 5em;

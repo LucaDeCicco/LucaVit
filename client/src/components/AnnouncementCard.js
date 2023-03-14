@@ -13,6 +13,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import '../style/announcementCard.css'
 import {useEffect, useState} from "react";
 import {BASE_PATH} from "../util/Store";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function AnnouncementCard(props) {
 
@@ -75,6 +76,7 @@ export default function AnnouncementCard(props) {
                     </IconButton>
                 ):null}
                 <h3 className={"priceCard"}>{data.price}€</h3>
+                <VisibilityIcon style={{marginLeft:"2em", color:"gray", marginRight:"0.5em"}}/><p style={{color:"gray"}}>{Math.floor(data.views/2)}</p>
             </CardActions>
         </Card>
     );

@@ -1,6 +1,6 @@
 .profileNavBar{
     background-color: #eeeeee;
-    padding: 1em;
+    padding: 0em;
     position: fixed;
     top: 63px;
     width: 100%;
@@ -75,9 +75,9 @@
 
 }
 
-@media(max-width: 797px){
+@media(max-width: 1200px){
     .content{
-        margin-top: 12em;
+        margin-top: 10em!important;
     }
 }
 
@@ -88,6 +88,9 @@
 }
 
 @media(max-width: 730px){
+    .profileNavBar{
+        padding: 1em;
+    }
     .mainButtons{
         display: none !important;
     }
@@ -108,11 +111,15 @@
 }
 
 @media(max-width: 533px){
+    .profileNavBar{
+        padding: 0.5em;
+        padding-top: 1em;
+    }
     .content{
         margin-top: 9em!important;
     }
     .contentTitle{
-        margin-top: 10em;
+        margin-top: 5em!important;
     }
     .smallProfileButtons{
         display: none!important;
@@ -122,11 +129,11 @@
     }
 }
 
-@media(max-width: 500px){
-    .content{
-        margin-top: 10em!important;
-    }
-}
+/*@media(max-width: 500px){*/
+/*    .content{*/
+/*        margin-top: 10em!important;*/
+/*    }*/
+/*}*/
 
 @media(max-width: 465px){
     .content{

@@ -11,6 +11,8 @@ import Button from "@mui/material/Button";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {BASE_PATH} from "../util/Store";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
 
 
 const AnnouncementPage = () => {
@@ -19,43 +21,46 @@ const AnnouncementPage = () => {
     const [addedToFav, setAddedToFav] = useState(false);
 
     useEffect(() => {
-        const checkFavorite = async () => {
-            const user = JSON.parse(localStorage.getItem('user'));
-            if (user) {
-                let token = user.token
-                let userId = user.id
-                try {
-                    let request = await fetch(BASE_PATH + `announcement/favoriteCheck/${id}/${userId}`, {
-                        headers: {Authorization: 'Bearer ' + token}
-                    })
-                    let result = await request.json();
-                    setAddedToFav(result)
-                } catch (e) {
-                    console.log(e);
-                }
-
-            }
-        }
-
-        const fetcher = async () => {
-            const user = JSON.parse(localStorage.getItem('user'));
-            if (user) {
-                let token = user.token
-                try {
-                    let request = await fetch(BASE_PATH + `announcement/getById/${id}`, {
-                        headers: {Authorization: 'Bearer ' + token}
-                    })
-                    let result = await request.json();
-                    setAnnouncement(result)
-                } catch (e) {
-                    console.log(e);
-                }
-
-            }
-        };
+        console.log("de cate ori")
+        console.log("ceva")
         checkFavorite();
         fetcher();
-    }, [])
+    },[])
+
+    const checkFavorite = async () => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            let token = user.token
+            let userId = user.id
+            try {
+                let request = await fetch(BASE_PATH + `announcement/favoriteCheck/${id}/${userId}`, {
+                    headers: {Authorization: 'Bearer ' + token}
+                })
+                let result = await request.json();
+                setAddedToFav(result)
+            } catch (e) {
+                console.log(e);
+            }
+
+        }
+    }
+
+    const fetcher = async () => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            let token = user.token
+            try {
+                let request = await fetch(BASE_PATH + `announcement/getById/${id}`, {
+                    headers: {Authorization: 'Bearer ' + token}
+                })
+                let result = await request.json();
+                setAnnouncement(result)
+            } catch (e) {
+                console.log(e);
+            }
+
+        }
+    };
 
     const addToFav = async () => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -92,7 +97,7 @@ const AnnouncementPage = () => {
                 <Paper className={"announcementPrice"}>
                     <h2 style={{marginLeft: "2em"}}>{announcement?.price} €</h2>
                 </Paper>
-                <Button variant={"outlined"} style={{marginBottom: "1em"}} onClick={addToFav}>
+                <Button variant={"outlined"} style={{marginBottom: "1em", verticalAlign:"middle", alignItems:"center"}} onClick={addToFav}>
                     {addedToFav ? (
                         <>
                             <FavoriteIcon/>
@@ -106,6 +111,10 @@ const AnnouncementPage = () => {
                         </>
                     )}
                 </Button>
+                <div className="views">
+                <VisibilityIcon className="viewsIcon"/>
+                <p className="viewsNumber">{Math.floor(announcement.views/2)}</p>
+                </div>
                 {announcement ? <PhotoContainer data={announcement.images}/> : <Loading/>}
                 <AnnouncementPageDetails data={announcement}/>
                 <Paper className={"description"} elevation={24}>

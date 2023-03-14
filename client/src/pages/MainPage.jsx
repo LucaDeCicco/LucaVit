@@ -8,6 +8,7 @@ import AnnouncementList from "../components/AnnouncementList";
 import Button from "@mui/material/Button";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import MainPageVideo from "../components/MainPageVideo";
+import {getTokenExpirationDate} from "../util/Service";
 
 const MainPage = () => {
 
@@ -25,7 +26,46 @@ const MainPage = () => {
         marginBottom: scrollPosition >= 480 ? "7em" : "0em"
     }
 
+    function setupTokenExpirationChecking() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        let token = null
+        if (user) {
+            token = user.token
+        }
+        console.log(token);
+        if (!token) {
+            return false;
+        }
+        const expirationDate = getTokenExpirationDate(token);
+        if (!expirationDate) {
+            return false;
+        }
+        if (new Date() >= expirationDate) {
+            localStorage.removeItem('user');
+            localStorage.removeItem('loggedIn');
+            return false;
+        }
+        return true;
+    }
+
     useEffect(() => {
+        let expirationChecking = true;
+        const intervalId = setInterval(() => {
+            expirationChecking = setupTokenExpirationChecking();
+            console.log("aaa:" + expirationChecking);
+            if (!expirationChecking) {
+                clearInterval(intervalId);
+                console.log("Interval cleared");
+                window.location.replace("/login")
+            }
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+
+    useEffect(() => {
+
         function handleScroll() {
             const position = window.scrollY;
             setScrollPosition(position);
