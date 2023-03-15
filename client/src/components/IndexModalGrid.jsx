@@ -6,13 +6,13 @@ import IndexModalSmallSelect from "./IndexModalSmallSelect";
 import Button from "@mui/material/Button";
 import SearchIcon from '@mui/icons-material/Search';
 import {useEffect, useState} from "react";
-import {BASE_PATH, CAR_SPECS, FILTER_DETAILS, FILTER_STORE, LOGGED_IN} from "../util/Store";
+import {CAR_SPECS, FILTER_DETAILS, FILTER_STORE, LOGGED_IN} from "../util/Store";
 import axios from "axios";
 import {useAtom} from "jotai";
 
 
 export default function IndexModalGrid() {
-
+    const backend = process.env.REACT_APP_BACKEND;
     const [carSpecs, setCarSpecs] = useAtom(CAR_SPECS);
     const [fromPriceList] = useState([500, 1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000]);
     const [maxPriceList] = useState([1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000]);
@@ -26,7 +26,7 @@ export default function IndexModalGrid() {
         async function fetchBrandsData() {
             if (!carSpecs) {
                 try {
-                    let response = await axios.get(BASE_PATH + "specs/getAllSpecs");
+                    let response = await axios.get(backend + "specs/getAllSpecs");
                     console.log(response.data);
                     setCarSpecs(response.data);
                 } catch (e) {

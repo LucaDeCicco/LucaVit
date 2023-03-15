@@ -1,11 +1,13 @@
 import {atom} from "jotai";
 import { atomWithStorage } from 'jotai/utils'
 
-export const BASE_PATH = "http://localhost:8888/";
+// export const BASE_PATH = "http://localhost:8888/";
 
 export const LOGGED_IN = atomWithStorage("loggedIn", localStorage.getItem("loggedIn"));
 
 export const CAR_SPECS = atomWithStorage("carSpecs", localStorage.getItem("carSpecs"));
+
+export const RE_RENDER = atom(false);
 
 export const ADD_ANNOUNCEMENT_DETAILS = atom({
     bodyType: undefined,

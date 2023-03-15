@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import '../style/ProfilePage.css'
 import Button from "@mui/material/Button";
 import AnnouncementList from "../components/AnnouncementList";
-
 import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MessageIcon from '@mui/icons-material/Message';

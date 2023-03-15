@@ -14,7 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import '../style/navbar.css';
 import Logo from '../resources/logo.PNG';
 import {useAtom} from "jotai";
-import {LOGGED_IN} from "../util/Store";
+import {LOGGED_IN, RE_RENDER} from "../util/Store";
 import profileImg from '../resources/AvatarNoBg.png';
 import LoginIcon from '@mui/icons-material/Login';
 

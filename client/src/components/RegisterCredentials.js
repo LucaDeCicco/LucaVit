@@ -8,13 +8,13 @@ import Button from '@mui/material/Button';
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import {useAtom} from "jotai";
-import {BASE_PATH, LOGGED_IN} from "../util/Store";
-import {setupTokenExpirationChecking} from "../util/Service";
+import {LOGGED_IN} from "../util/Store";
 
-const API_URL = BASE_PATH + "api/auth/";
 
 export default function RegisterCredentials() {
 
+    const backend = process.env.REACT_APP_BACKEND;
+    const API_URL = backend + "api/auth/";
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');

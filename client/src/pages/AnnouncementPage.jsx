@@ -10,13 +10,13 @@ import ContactCard from "../components/ContactCard";
 import Button from "@mui/material/Button";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import {BASE_PATH} from "../util/Store";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
 
 const AnnouncementPage = () => {
     const {id} = useParams();
+    const backend = process.env.REACT_APP_BACKEND;
     const [announcement, setAnnouncement] = useState();
     const [addedToFav, setAddedToFav] = useState(false);
 
@@ -33,7 +33,7 @@ const AnnouncementPage = () => {
             let token = user.token
             let userId = user.id
             try {
-                let request = await fetch(BASE_PATH + `announcement/favoriteCheck/${id}/${userId}`, {
+                let request = await fetch(backend + `announcement/favoriteCheck/${id}/${userId}`, {
                     headers: {Authorization: 'Bearer ' + token}
                 })
                 let result = await request.json();
@@ -50,7 +50,7 @@ const AnnouncementPage = () => {
         if (user) {
             let token = user.token
             try {
-                let request = await fetch(BASE_PATH + `announcement/getById/${id}`, {
+                let request = await fetch(backend + `announcement/getById/${id}`, {
                     headers: {Authorization: 'Bearer ' + token}
                 })
                 let result = await request.json();
@@ -69,7 +69,7 @@ const AnnouncementPage = () => {
             let userId = user.id
             if (!addedToFav) {
                 try {
-                    await fetch(BASE_PATH + `announcement/addToFavorites/${id}/${userId}`, {
+                    await fetch(backend + `announcement/addToFavorites/${id}/${userId}`, {
                         method: "POST",
                         headers: {Authorization: 'Bearer ' + token}
                     })
@@ -78,7 +78,7 @@ const AnnouncementPage = () => {
                 }
             } else {
                 try {
-                    await fetch(BASE_PATH + `announcement/removeFromFavorites/${id}/${userId}`, {
+                    await fetch(backend + `announcement/removeFromFavorites/${id}/${userId}`, {
                         method: "POST",
                         headers: {Authorization: 'Bearer ' + token}
                     })

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAtom} from "jotai";
-import {ADD_ANNOUNCEMENT_DETAILS, BASE_PATH, LOGGED_IN} from "../util/Store";
+import {ADD_ANNOUNCEMENT_DETAILS, LOGGED_IN} from "../util/Store";
 import {CAR_SPECS} from "../util/Store";
 import Loading from "../components/Loading";
 import '../style/addAnnouncementPage.css';
@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 
 const AddAnnouncement = () => {
 
+    const backend = process.env.REACT_APP_BACKEND;
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
     const [carSpecs, setCarSpecs] = useAtom(CAR_SPECS);
     const [announcementDetails, setAnnouncementDetails] = useAtom(ADD_ANNOUNCEMENT_DETAILS);
@@ -28,7 +29,7 @@ const AddAnnouncement = () => {
         async function fetchBrandsData() {
             if (!carSpecs) {
                 try {
-                    let response = await axios.get(BASE_PATH + "specs/getAllSpecs");
+                    let response = await axios.get(backend + "specs/getAllSpecs");
                     setCarSpecs(response.data);
                 } catch (e) {
                     console.log("error: " + e);
@@ -45,7 +46,7 @@ const AddAnnouncement = () => {
         let token = user.token
         let username = user.username;
         try {
-            await fetch(BASE_PATH + "announcement/add", {
+            await fetch(backend + "announcement/add", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

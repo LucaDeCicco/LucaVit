@@ -8,15 +8,16 @@ import Button from '@mui/material/Button';
 import {useState} from "react";
 import axios from 'axios';
 import {useAtom} from "jotai";
-import {BASE_PATH, LOGGED_IN} from "../util/Store";
+import {LOGGED_IN} from "../util/Store";
 import {Alert, Stack} from "@mui/material";
 import {setupTokenExpirationChecking} from "../util/Service";
 
-const API_URL = BASE_PATH+"api/auth/";
+
 
 export default function LoginCredentials() {
 
-
+    const backend = process.env.REACT_APP_BACKEND;
+    const API_URL = backend+"api/auth/";
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
     const [isVisible, setIsVisible] = useState(false);
     const [username, setUsername] = useState('');

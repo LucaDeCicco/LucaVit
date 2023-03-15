@@ -12,12 +12,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import '../style/announcementCard.css'
 import {useEffect, useState} from "react";
-import {BASE_PATH} from "../util/Store";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function AnnouncementCard(props) {
 
     const {data}=props
+    const backend = process.env.REACT_APP_BACKEND;
     const [addedToFav, setAddedToFav] = useState(false);
 
     useEffect(()=>{
@@ -27,7 +27,7 @@ export default function AnnouncementCard(props) {
                 let token = user.token
                 let userId = user.id
                 try {
-                    let request = await fetch(BASE_PATH+`announcement/favoriteCheck/${data.id}/${userId}`, {
+                    let request = await fetch(backend+`announcement/favoriteCheck/${data.id}/${userId}`, {
                         headers: {Authorization: 'Bearer ' + token}
                     })
                     let result = await request.json();
