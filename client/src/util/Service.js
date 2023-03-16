@@ -1,10 +1,7 @@
-// import jwt_decode from 'jsonwebtoken/decode';
 import jwt_decode from 'jwt-decode';
 
-//
 export function getTokenExpirationDate(token) {
     const decodedToken = jwt_decode(token);
-    // const decodedToken = "jwt_decode(token)";
     if (!decodedToken.exp) {
         return null;
     }
@@ -19,7 +16,6 @@ export function setupTokenExpirationChecking() {
     if (user) {
         token = user.token
     }
-    // console.log(token);
     if (!token) {
         return false;
     }
@@ -36,16 +32,11 @@ export function setupTokenExpirationChecking() {
 }
 
 export function checkLogin(value, setter){
-    // let expirationChecking = true;
     const intervalId = setInterval(() => {
         let expirationChecking = setupTokenExpirationChecking();
-        // console.log("aaa:" + expirationChecking);
         if (!expirationChecking) {
             clearInterval(intervalId);
-            console.log("Interval cleared");
-            setter(!value);
-            // window.location.replace("/login")
-            // window.location.reload()
+            setter(false);
         }
     }, 1000);
 

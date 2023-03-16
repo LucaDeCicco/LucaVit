@@ -27,7 +27,7 @@ export default function RegisterCredentials() {
     useEffect(() => {
         const fetcherUsernames = async () => {
             try {
-                let request = await fetch(BASE_PATH + `user/getAllUsernames`)
+                let request = await fetch(backend + `user/getAllUsernames`)
                 let result = await request.json();
                 setUserNames(result);
             } catch (e) {
@@ -37,7 +37,7 @@ export default function RegisterCredentials() {
         };
         const fetcherEmails = async () => {
             try {
-                let request = await fetch(BASE_PATH + `user/getAllEmails`)
+                let request = await fetch(backend + `user/getAllEmails`)
                 let result = await request.json();
                 setEmails(result);
             } catch (e) {

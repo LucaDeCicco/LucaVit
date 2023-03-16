@@ -3,6 +3,7 @@ import { atomWithStorage } from 'jotai/utils'
 
 // export const BASE_PATH = "http://localhost:8888/";
 
+// export const LOGGED_IN = atomWithStorage("loggedIn", localStorage.getItem("loggedIn"));
 export const LOGGED_IN = atomWithStorage("loggedIn", localStorage.getItem("loggedIn"));
 
 export const CAR_SPECS = atomWithStorage("carSpecs", localStorage.getItem("carSpecs"));

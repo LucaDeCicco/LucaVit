@@ -17,6 +17,8 @@ import {useAtom} from "jotai";
 import {LOGGED_IN, RE_RENDER} from "../util/Store";
 import profileImg from '../resources/AvatarNoBg.png';
 import LoginIcon from '@mui/icons-material/Login';
+import {useEffect} from "react";
+import {checkLogin} from "../util/Service";
 
 
 function ResponsiveAppBar() {
@@ -24,6 +26,10 @@ function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
+
+    useEffect(()=> {
+        checkLogin(loggedIn, setLoggedIn);
+    },[])
 
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);

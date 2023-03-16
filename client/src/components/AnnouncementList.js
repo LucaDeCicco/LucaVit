@@ -86,12 +86,8 @@ export default function AnnouncementList(props) {
             }
         }
         else {
-            const user = JSON.parse(localStorage.getItem('user'));
-            let token = user.token
             try {
-                let response = await fetch(backend+`announcement/getByNrCrt/${announcementCrt}`, {
-                    headers: {Authorization: 'Bearer ' + token},
-                })
+                let response = await fetch(backend+`announcement/getByNrCrt/${announcementCrt}`)
                 let result = await response.json();
                 setData(prevData => [...prevData, result]);
                 setAnnouncementCrt(announcementCrt+1);

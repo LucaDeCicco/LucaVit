@@ -11,6 +11,7 @@ import BasicInput from "../components/BasicInput";
 import Textarea from "../components/Textarea";
 import FileBase64 from "react-file-base64";
 import Button from "@mui/material/Button";
+// import {newPost} from "../util/AxiosService";
 
 
 const AddAnnouncement = () => {
@@ -45,6 +46,22 @@ const AddAnnouncement = () => {
         const user = JSON.parse(localStorage.getItem('user'));
         let token = user.token
         let username = user.username;
+        // const data = JSON.stringify({
+        //         bodyType: carSpecs.bodyTypes[announcementDetails.bodyType / 10],
+        //         brand: carSpecs.brands[announcementDetails.brand / 10],
+        //         gearBoxType: carSpecs.gearBoxTypes[announcementDetails.gearBox / 10],
+        //         fuel: carSpecs.fuels[announcementDetails.fuel / 10],
+        //         year: parseInt(announcementDetails.year),
+        //         km: parseInt(announcementDetails.km),
+        //         vin: announcementDetails.vin,
+        //         description: announcementDetails.description,
+        //         images: announcementDetails.images,
+        //         price: parseInt(announcementDetails.price),
+        //         county: carSpecs.counties[announcementDetails.county / 10],
+        //         contact: announcementDetails.contact,
+        //         authorName: username
+        //     });
+        // await newPost(data)
         try {
             await fetch(backend + "announcement/add", {
                 method: "POST",

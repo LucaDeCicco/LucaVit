@@ -13,7 +13,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
-
 const AnnouncementPage = () => {
     const {id} = useParams();
     const backend = process.env.REACT_APP_BACKEND;
@@ -21,11 +20,9 @@ const AnnouncementPage = () => {
     const [addedToFav, setAddedToFav] = useState(false);
 
     useEffect(() => {
-        console.log("de cate ori")
-        console.log("ceva")
         checkFavorite();
         fetcher();
-    },[])
+    }, [])
 
     const checkFavorite = async () => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -46,19 +43,12 @@ const AnnouncementPage = () => {
     }
 
     const fetcher = async () => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
-            let token = user.token
-            try {
-                let request = await fetch(backend + `announcement/getById/${id}`, {
-                    headers: {Authorization: 'Bearer ' + token}
-                })
-                let result = await request.json();
-                setAnnouncement(result)
-            } catch (e) {
-                console.log(e);
-            }
-
+        try {
+            let request = await fetch(backend + `announcement/getById/${id}`)
+            let result = await request.json();
+            setAnnouncement(result)
+        } catch (e) {
+            console.log(e);
         }
     };
 
@@ -86,8 +76,11 @@ const AnnouncementPage = () => {
                     console.log(e);
                 }
             }
+            setAddedToFav(!addedToFav);
         }
-        setAddedToFav(!addedToFav);
+        else {
+            window.location.replace("/login");
+        }
     }
 
     return (
@@ -97,7 +90,8 @@ const AnnouncementPage = () => {
                 <Paper className={"announcementPrice"}>
                     <h2 style={{marginLeft: "2em"}}>{announcement?.price} €</h2>
                 </Paper>
-                <Button variant={"outlined"} style={{marginBottom: "1em", verticalAlign:"middle", alignItems:"center"}} onClick={addToFav}>
+                <Button variant={"outlined"}
+                        style={{marginBottom: "1em", verticalAlign: "middle", alignItems: "center"}} onClick={addToFav}>
                     {addedToFav ? (
                         <>
                             <FavoriteIcon/>
@@ -112,10 +106,12 @@ const AnnouncementPage = () => {
                     )}
                 </Button>
                 <div className="views">
-                <VisibilityIcon className="viewsIcon"/>
-                <p className="viewsNumber">{Math.floor(announcement.views/2)}</p>
+                    <VisibilityIcon className="viewsIcon"/>
+                    {/*<p className="viewsNumber">{Math.floor(announcement?.views/2)}</p>*/}
+                    <p className="viewsNumber">{isNaN(announcement?.views) ? 'N/A' : Math.floor(Number(announcement?.views) / 2)}</p>
+
                 </div>
-                {announcement ? <PhotoContainer data={announcement.images}/> : <Loading/>}
+                {announcement ? <PhotoContainer data={announcement?.images}/> : <Loading/>}
                 <AnnouncementPageDetails data={announcement}/>
                 <Paper className={"description"} elevation={24}>
                     {announcement?.description}

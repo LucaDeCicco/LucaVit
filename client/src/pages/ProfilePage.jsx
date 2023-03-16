@@ -7,11 +7,20 @@ import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MessageIcon from '@mui/icons-material/Message';
 import SettingsIcon from '@mui/icons-material/Settings';
+import {useAtom} from "jotai";
+import {LOGGED_IN} from "../util/Store";
 
 const ProfilePage = () => {
     const {username} = useParams();
     const [content, setContent] = useState("MY ANNOUNCEMENTS");
     const contentTypes = ["MY ANNOUNCEMENTS", "FAVORITES", "MESSAGES", "SETTINGS"]
+    const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
+
+    useEffect(()=> {
+        if (!loggedIn){
+            window.location.replace("/login");
+        }
+    },[loggedIn])
 
     const changeContent = (event) => {
         setContent(event.target.valueOf().innerText);

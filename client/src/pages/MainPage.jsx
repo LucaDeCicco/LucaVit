@@ -27,14 +27,8 @@ const MainPage = () => {
     }
 
 
-
-    // useEffect(() => {
-    //     checkLogin()
-    // }, []);
-
-
     useEffect(() => {
-        checkLogin(loggedIn, setLoggedIn);
+        // checkLogin(loggedIn, setLoggedIn);
         function handleScroll() {
             const position = window.scrollY;
             setScrollPosition(position);
@@ -48,9 +42,6 @@ const MainPage = () => {
 
 
     const handleShowAllBtn = () => {
-        if (!loggedIn) {
-            window.location.replace("/login")
-        }
         setScroll(!scroll);
     }
     return (
