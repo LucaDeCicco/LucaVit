@@ -28,7 +28,7 @@ public class AnnouncementService {
         this.userService = userService;
     }
 
-    public void addAnnouncement(AnnouncementRequest announcementRequest){
+    public Long addAnnouncement(AnnouncementRequest announcementRequest){
         Car car = new Car(announcementRequest.getBodyType(),
                 announcementRequest.getBrand(),
                 announcementRequest.getGearBoxType(),
@@ -56,6 +56,7 @@ public class AnnouncementService {
                 appUser
         );
         announcementRepository.save(announcement);
+        return announcement.getId();
     }
 
     public Announcement getAnnouncementByNrCrt(Long nrCrt){

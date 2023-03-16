@@ -23,8 +23,8 @@ public class AnnouncementController {
     }
 
     @PostMapping("/add")
-    public void addAnnouncement(@Valid @RequestBody AnnouncementRequest request){
-        announcementService.addAnnouncement(request);
+    public String addAnnouncement(@Valid @RequestBody AnnouncementRequest request){
+        return String.valueOf(announcementService.addAnnouncement(request));
     }
 
     @GetMapping("/getByNrCrt/{nrCrt}")
