@@ -5,6 +5,7 @@ import com.codecool.lucaVit.payload.AnnouncementRequest;
 import com.codecool.lucaVit.payload.FiltersRequest;
 import com.codecool.lucaVit.service.AnnouncementService;
 import com.codecool.lucaVit.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +23,7 @@ public class AnnouncementController {
     }
 
     @PostMapping("/add")
-    public void addAnnouncement(@RequestBody AnnouncementRequest request){
+    public void addAnnouncement(@Valid @RequestBody AnnouncementRequest request){
         announcementService.addAnnouncement(request);
     }
 
