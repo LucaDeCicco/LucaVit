@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAtom} from "jotai";
 import {ADD_ANNOUNCEMENT_DETAILS, LOGGED_IN} from "../util/Store";
 import {CAR_SPECS} from "../util/Store";
@@ -11,6 +11,7 @@ import BasicInput from "../components/BasicInput";
 import Textarea from "../components/Textarea";
 import FileBase64 from "react-file-base64";
 import Button from "@mui/material/Button";
+import SnackBar from "../components/SnackBar";
 // import {newPost} from "../util/AxiosService";
 
 
@@ -20,6 +21,7 @@ const AddAnnouncement = () => {
     const [loggedIn, setLoggedIn] = useAtom(LOGGED_IN);
     const [carSpecs, setCarSpecs] = useAtom(CAR_SPECS);
     const [announcementDetails, setAnnouncementDetails] = useAtom(ADD_ANNOUNCEMENT_DETAILS);
+    const [error, setError] = useState(false);
 
 
     useEffect(() => {
@@ -64,12 +66,9 @@ const AddAnnouncement = () => {
         // await newPost(data)
         try {
             const response = await fetch(backend + "announcement/add", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: 'Bearer ' + token
-                },
-                body: JSON.stringify({
+                method: "POST", headers: {
+                    'Content-Type': 'application/json', Authorization: 'Bearer ' + token
+                }, body: JSON.stringify({
                     bodyType: carSpecs.bodyTypes[announcementDetails.bodyType / 10],
                     brand: carSpecs.brands[announcementDetails.brand / 10],
                     gearBoxType: carSpecs.gearBoxTypes[announcementDetails.gearBox / 10],
@@ -86,8 +85,12 @@ const AddAnnouncement = () => {
                 }),
             });
             const announcementId = await response.text()
-            console.log(announcementId);
-            window.location.replace(`/announcement/${announcementId}`)
+            if (response.status === 200) {
+                window.location.replace(`/announcement/${announcementId}`)
+            } else {
+                setError(true);
+            }
+
         } catch (e) {
             console.log(e);
         }
@@ -103,86 +106,80 @@ const AddAnnouncement = () => {
 
     const createDataObject = (label, elements, type) => {
         return {
-            label: label,
-            elements: elements,
-            type: type
+            label: label, elements: elements, type: type
         };
     };
 
-    return (
-        <>
-            {loggedIn ? (
-                <div className="parentAddAnnouncement">
-                    <div className="div1AddAnnouncement">
-                        <h1 className={"addAnnouncementTitle"}>Add Announcement</h1>
-                        <h3>Car Details</h3>
-                        <div className="parentAddCarDetails">
-                            <div className="div1AddCarDetails">
-                                <IndexModalSelect
-                                    data={createDataObject("BodyType", carSpecs.bodyTypes, "addAnnouncement")}/>
-                            </div>
-                            <div className="div2AddCarDetails">
-                                <IndexModalSelect data={createDataObject("Brand", carSpecs.brands, "addAnnouncement")}/>
-                            </div>
-                            <div className="div3AddCarDetails">
-                                <IndexModalSelect
-                                    data={createDataObject("GearBox", carSpecs.gearBoxTypes, "addAnnouncement")}/>
-                            </div>
-                            <div className="div4AddCarDetails">
-                                <IndexModalSelect data={createDataObject("Fuel", carSpecs.fuels, "addAnnouncement")}/>
-                            </div>
-                            <div className="div5AddCarDetails">
-                                <BasicInput data={"year"}/>
-                            </div>
-                            <div className="div6AddCarDetails">
-                                <BasicInput data={"Km"}/>
-                            </div>
+    return (<>
+            {loggedIn ? (<div className="parentAddAnnouncement">
+                <div className="div1AddAnnouncement">
+                    <h1 className={"addAnnouncementTitle"}>Add Announcement</h1>
+                    <h3>Car Details</h3>
+                    <div className="parentAddCarDetails">
+                        <div className="div1AddCarDetails">
+                            <IndexModalSelect
+                                data={createDataObject("BodyType", carSpecs.bodyTypes, "addAnnouncement")}/>
                         </div>
-                        <div className={"addVin"}>
-                            <BasicInput data={"VIN"}/>
+                        <div className="div2AddCarDetails">
+                            <IndexModalSelect data={createDataObject("Brand", carSpecs.brands, "addAnnouncement")}/>
                         </div>
-                        <h3>Description</h3>
-                        <Textarea data={"addAnnouncement"}/>
-                        <br/>
-                        <label>Add Images </label>
-                        <FileBase64
-                            multiple={true}
-                            onDone={uploadImages}
-                        />
-                        <br/>
-                        <br/>
-                        <div>
-                            <div style={{float: "left"}}>
-                                <BasicInput data={"Price"}/>
-                            </div>
-                            <h4 style={{float: "left"}}>&nbsp; € EUR</h4>
+                        <div className="div3AddCarDetails">
+                            <IndexModalSelect
+                                data={createDataObject("GearBox", carSpecs.gearBoxTypes, "addAnnouncement")}/>
                         </div>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <h3>Contact</h3>
-                        <IndexModalSelect data={createDataObject("County", carSpecs.counties, "addAnnouncement")}/>
-                        <br/>
-                        <br/>
-                        <BasicInput data={"Email or Phone"}/>
-                        <br/>
-                        <br/>
-                        <Button variant="contained" color="success" onClick={addAnnouncement}>
-                            Add announcement
-                        </Button>
-                        <br/>
-                        <br/>
-                        <br/>
+                        <div className="div4AddCarDetails">
+                            <IndexModalSelect data={createDataObject("Fuel", carSpecs.fuels, "addAnnouncement")}/>
+                        </div>
+                        <div className="div5AddCarDetails">
+                            <BasicInput data={"year"}/>
+                        </div>
+                        <div className="div6AddCarDetails">
+                            <BasicInput data={"Km"}/>
+                        </div>
                     </div>
-                    <div className="div2AddAnnouncement">
-                        <img src={sellAndBuyImage} style={{maxWidth: "25em", maxHeight: "25em"}}/>
+                    <div className={"addVin"}>
+                        <BasicInput data={"VIN"}/>
                     </div>
+                    <h3>Description</h3>
+                    <Textarea data={"addAnnouncement"}/>
+                    <br/>
+                    <label>Add Images </label>
+                    <FileBase64
+                        multiple={true}
+                        onDone={uploadImages}
+                    />
+                    <br/>
+                    <br/>
+                    <div>
+                        <div style={{float: "left"}}>
+                            <BasicInput data={"Price"}/>
+                        </div>
+                        <h4 style={{float: "left"}}>&nbsp; € EUR</h4>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h3>Contact</h3>
+                    <IndexModalSelect data={createDataObject("County", carSpecs.counties, "addAnnouncement")}/>
+                    <br/>
+                    <br/>
+                    <BasicInput data={"Email or Phone"}/>
+                    <br/>
+                    <br/>
+                    <Button variant="contained" color="success" onClick={addAnnouncement}>
+                        Add announcement
+                    </Button>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
-            ) : (
-                <div style={{position: "absolute", left: "47%", top: "100px"}}>
-                    <Loading/>
+                <div className="div2AddAnnouncement">
+                    <img src={sellAndBuyImage} style={{maxWidth: "25em", maxHeight: "25em"}}/>
                 </div>
-            )}
+            </div>) : (<div style={{position: "absolute", left: "47%", top: "100px"}}>
+                <Loading/>
+            </div>)}
+            <SnackBar data={{open: error, type: "error", message: "Something went wrong", setter: setError}}/>
         </>
 
     )
