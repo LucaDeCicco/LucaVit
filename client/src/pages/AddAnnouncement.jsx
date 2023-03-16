@@ -63,7 +63,7 @@ const AddAnnouncement = () => {
         //     });
         // await newPost(data)
         try {
-            await fetch(backend + "announcement/add", {
+            const response = await fetch(backend + "announcement/add", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,7 +85,9 @@ const AddAnnouncement = () => {
                     authorName: username
                 }),
             });
-            window.location.replace("/")
+            const announcementId = await response.text()
+            console.log(announcementId);
+            window.location.replace(`/announcement/${announcementId}`)
         } catch (e) {
             console.log(e);
         }

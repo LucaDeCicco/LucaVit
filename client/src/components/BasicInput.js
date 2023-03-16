@@ -9,6 +9,12 @@ export default function BasicInput(props) {
     const { data } = props;
     const [announcementDetails, setAnnouncementDetails] = useAtom(ADD_ANNOUNCEMENT_DETAILS);
 
+    const handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+        }
+    };
+
     const inputHandle =(event)=> {
         switch (data) {
             case "Km":
@@ -39,7 +45,7 @@ export default function BasicInput(props) {
             noValidate
             autoComplete="off"
         >
-            <TextField id="outlined-basic" className={"addPrice"} style={{width:"17em"}} label={data} onChange={inputHandle} variant="outlined" />
+            <TextField id="outlined-basic" onKeyPress={handleKeyPress} className={"addPrice"} style={{width:"17em"}} label={data} onChange={inputHandle} variant="outlined" />
         </Box>
     );
 }

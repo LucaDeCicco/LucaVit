@@ -22,14 +22,11 @@ export default function AnnouncementList(props) {
 
     const loadData = async () => {
         if (type==="filter"){
-            const user = JSON.parse(localStorage.getItem('user'));
-            let token = user.token
             try {
                 let response = await fetch(backend+`announcement/filter/${announcementCrt}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: 'Bearer ' + token
                     },
                     body: JSON.stringify({
                         bodyType:filters.bodyType,

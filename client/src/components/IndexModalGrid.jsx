@@ -47,9 +47,6 @@ export default function IndexModalGrid() {
     };
 
     const searchAnnouncements = () => {
-        if (!loggedIn) {
-            window.location.replace("/login")
-        } else {
             filterStore.filter = true;
             filterStore.bodyType = carSpecs.bodyTypes[filterDetails.bodyType / 10];
             filterStore.brand = carSpecs.brands[filterDetails.brand / 10];
@@ -64,8 +61,6 @@ export default function IndexModalGrid() {
             filterStore.county = carSpecs.counties[filterDetails.county / 10]
             setFilterStore(filterStore);
             window.location.replace("/filteredAnnouncements")
-        }
-
     }
 
 
